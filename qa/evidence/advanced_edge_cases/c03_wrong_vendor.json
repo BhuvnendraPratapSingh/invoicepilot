@@ -1,0 +1,501 @@
+{
+  "case": {
+    "id": "d6a35b5a-86fc-4f4f-9281-d56998bf15bb",
+    "vendor_id": "V-001",
+    "vendor_name": "Apex Digital Solutions",
+    "invoice_number": "APX-2026-0777",
+    "currency": "USD",
+    "gross_cents": 54000,
+    "net_cents": 50000,
+    "po_id": null,
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "PO_AMBIGUOUS",
+    "created_at": "2026-10-24T22:33:06.725694"
+  },
+  "source_documents": [
+    {
+      "id": "af95d799-4ad6-4e68-b1bd-81c921fb658f",
+      "revision_number": 1,
+      "original_filename": "adv_wrong_vendor_po.pdf",
+      "sha256_hash": "d5aa5ba5e02e1965833645fc124e6a7388f246954bf05af6e81fa3b1ac10614f",
+      "file_size_bytes": 2252,
+      "page_count": 1,
+      "is_current": true,
+      "created_at": "2026-10-24T22:33:06.725823"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "2f4cc174-ee0d-4536-93a9-da3f0be2d3d6",
+      "attempt_number": 1,
+      "execution_state": "COMPLETED",
+      "trigger": "upload",
+      "extraction_mode": "local",
+      "started_at": "2026-10-24T22:33:06.721770",
+      "completed_at": "2026-10-24T22:33:06.777558",
+      "error_message": null,
+      "events": [
+        {
+          "stage_name": "receive_validate",
+          "stage_order": 0,
+          "status": "COMPLETED",
+          "message": "Valid PDF: 1 pages, 2252 bytes",
+          "details": {
+            "page_count": 1,
+            "sha256": "d5aa5ba5e02e1965833645fc124e6a7388f246954bf05af6e81fa3b1ac10614f"
+          },
+          "started_at": "2026-10-24T22:33:06.721770",
+          "completed_at": "2026-10-24T22:33:06.726154",
+          "duration_ms": 4
+        },
+        {
+          "stage_name": "byte_duplicate_check",
+          "stage_order": 1,
+          "status": "COMPLETED",
+          "message": "No byte-level duplicate found",
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.721770",
+          "completed_at": "2026-10-24T22:33:06.726337",
+          "duration_ms": 4
+        },
+        {
+          "stage_name": "text_extraction",
+          "stage_order": 2,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.758599",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "text_extraction",
+          "stage_order": 2,
+          "status": "COMPLETED",
+          "message": "Extracted text from 1 pages",
+          "details": {
+            "methods": {
+              "1": "NATIVE_TEXT"
+            },
+            "total_chars": 288
+          },
+          "started_at": "2026-10-24T22:33:06.758599",
+          "completed_at": "2026-10-24T22:33:06.759811",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "field_extraction",
+          "stage_order": 3,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.760908",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "field_extraction",
+          "stage_order": 3,
+          "status": "COMPLETED",
+          "message": "Extracted 4 key fields",
+          "details": {
+            "warnings": [],
+            "line_items": 1
+          },
+          "started_at": "2026-10-24T22:33:06.760908",
+          "completed_at": "2026-10-24T22:33:06.762676",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "field_validation",
+          "stage_order": 4,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.764039",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "field_validation",
+          "stage_order": 4,
+          "status": "COMPLETED",
+          "message": "All fields valid",
+          "details": {
+            "issues": []
+          },
+          "started_at": "2026-10-24T22:33:06.764039",
+          "completed_at": "2026-10-24T22:33:06.765403",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "vendor_resolution",
+          "stage_order": 5,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.766420",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "vendor_resolution",
+          "stage_order": 5,
+          "status": "COMPLETED",
+          "message": "Vendor resolved: Apex Digital Solutions",
+          "details": {
+            "resolved": true,
+            "vendor_id": "V-001",
+            "match_method": "TAX_ID",
+            "candidates": 1
+          },
+          "started_at": "2026-10-24T22:33:06.766420",
+          "completed_at": "2026-10-24T22:33:06.767893",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "duplicate_detection",
+          "stage_order": 6,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.769199",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "duplicate_detection",
+          "stage_order": 6,
+          "status": "COMPLETED",
+          "message": "No business duplicates detected",
+          "details": {
+            "is_duplicate": false,
+            "is_collision": false,
+            "duplicate_case": null
+          },
+          "started_at": "2026-10-24T22:33:06.769199",
+          "completed_at": "2026-10-24T22:33:06.770730",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "po_matching",
+          "stage_order": 7,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.771997",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "po_matching",
+          "stage_order": 7,
+          "status": "COMPLETED",
+          "message": "PO not matched: PO 'PO-1002' belongs to vendor V-002, not V-001",
+          "details": {
+            "matched": false,
+            "po_id": null,
+            "candidates": 0,
+            "requires_reviewer": true
+          },
+          "started_at": "2026-10-24T22:33:06.771997",
+          "completed_at": "2026-10-24T22:33:06.773376",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "policy_evaluation",
+          "stage_order": 8,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.774351",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "policy_evaluation",
+          "stage_order": 8,
+          "status": "COMPLETED",
+          "message": "Decision: NEEDS_REVIEW \u2014 PO_AMBIGUOUS",
+          "details": {
+            "decision": "NEEDS_REVIEW",
+            "reason_codes": [
+              "PO_AMBIGUOUS"
+            ],
+            "rules_passed": 7,
+            "rules_failed": 1
+          },
+          "started_at": "2026-10-24T22:33:06.774351",
+          "completed_at": "2026-10-24T22:33:06.775771",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "commit_decision",
+          "stage_order": 9,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.776957",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "commit_decision",
+          "stage_order": 9,
+          "status": "COMPLETED",
+          "message": "Decision committed: NEEDS_REVIEW",
+          "details": {
+            "has_reservation": false,
+            "reservation_cents": null
+          },
+          "started_at": "2026-10-24T22:33:06.776957",
+          "completed_at": "2026-10-24T22:33:06.777560",
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "publish_results",
+          "stage_order": 10,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:06.778877",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "publish_results",
+          "stage_order": 10,
+          "status": "COMPLETED",
+          "message": "Results published",
+          "details": {
+            "case_id": "d6a35b5a-86fc-4f4f-9281-d56998bf15bb",
+            "decision": "NEEDS_REVIEW"
+          },
+          "started_at": "2026-10-24T22:33:06.778877",
+          "completed_at": "2026-10-24T22:33:06.779106",
+          "duration_ms": 0
+        }
+      ],
+      "extracted_data": {
+        "vendor_name": "APEX DIGITAL SOLUTIONS",
+        "normalized_vendor": "APEX DIGITAL SOLUTIONS",
+        "vendor_tax_id": "84-2917365",
+        "invoice_number": "APX-2026-0777",
+        "invoice_date": "March 10, 2026",
+        "due_date": null,
+        "currency": "USD",
+        "po_reference": "PO-1002",
+        "subtotal_cents": 50000,
+        "tax_cents": 4000,
+        "gross_total_cents": 54000,
+        "net_total_cents": 50000,
+        "tax_treatment": "EXCLUSIVE",
+        "line_items": [
+          {
+            "description": "Consulting services",
+            "amount_cents": 50000,
+            "amount_display": "$500.00",
+            "raw_text": "1\nConsulting services\n$500.00"
+          }
+        ],
+        "extraction_method": "local",
+        "warnings": null
+      },
+      "field_evidences": [
+        {
+          "field_name": "vendor_name",
+          "raw_text": "APEX DIGITAL SOLUTIONS",
+          "normalized_value": "APEX DIGITAL SOLUTIONS",
+          "page_number": 1,
+          "text_span": "APEX DIGITAL SOLUTIONS",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "vendor_tax_id",
+          "raw_text": "84-2917365",
+          "normalized_value": "84-2917365",
+          "page_number": 1,
+          "text_span": "TX 78701\nTax ID: 84-2917365\nINVOICE\nIn",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "invoice_number",
+          "raw_text": "APX-2026-0777",
+          "normalized_value": "APX-2026-0777",
+          "page_number": 1,
+          "text_span": "5\nINVOICE\nInvoice Number:\nAPX-2026-0777\nInvoice Da",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "invoice_date",
+          "raw_text": "March 10, 2026",
+          "normalized_value": "March 10, 2026",
+          "page_number": 1,
+          "text_span": "2026-0777\nInvoice Date:\nMarch 10, 2026\nPO Referen",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "currency",
+          "raw_text": "USD",
+          "normalized_value": "USD",
+          "page_number": 1,
+          "text_span": ":\nPO-1002\nCurrency:\nUSD\n#\nDescript",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "po_reference",
+          "raw_text": "PO-1002",
+          "normalized_value": "PO-1002",
+          "page_number": 1,
+          "text_span": "10, 2026\nPO Reference:\nPO-1002\nCurrency:",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "subtotal",
+          "raw_text": "500.00",
+          "normalized_value": "50000",
+          "page_number": 1,
+          "text_span": "ng services\n$500.00\nSubtotal:\n$500.00\nTax (8%):\n$40.00\nTo",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "tax",
+          "raw_text": "40.00",
+          "normalized_value": "4000",
+          "page_number": 1,
+          "text_span": "0\nSubtotal:\n$500.00\nTax (8%):\n$40.00\nTotal Due:\n$540.00",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "gross_total",
+          "raw_text": "540.00",
+          "normalized_value": "54000",
+          "page_number": 1,
+          "text_span": "00\nTax (8%):\n$40.00\nTotal Due:\n$540.00",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "tax_treatment",
+          "raw_text": "TAX_EXCLUSIVE",
+          "normalized_value": "EXCLUSIVE",
+          "page_number": null,
+          "text_span": null,
+          "method": "DERIVED_ARITHMETIC",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": false
+        }
+      ],
+      "rules": [
+        {
+          "rule_id": "REQUIRED_FIELDS",
+          "rule_name": "Required Fields Present",
+          "result": "PASS",
+          "observed_value": "All present",
+          "expected_value": "invoice_number, net_total, currency, invoice_date",
+          "explanation": "All required fields present",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "CURRENCY_CHECK",
+          "rule_name": "Currency is USD",
+          "result": "PASS",
+          "observed_value": "USD",
+          "expected_value": "USD",
+          "explanation": "Currency USD is supported",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "DATE_CHECK",
+          "rule_name": "Invoice Date Not Future",
+          "result": "PASS",
+          "observed_value": "2026-03-10",
+          "expected_value": "On or before 2026-03-15",
+          "explanation": "Invoice date is valid",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "VENDOR_APPROVED",
+          "rule_name": "Vendor is Approved and Active",
+          "result": "PASS",
+          "observed_value": "Resolved: True, Active: True, ID: V-001",
+          "expected_value": "Vendor resolved and active",
+          "explanation": "Vendor V-001 is approved and active",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "DUPLICATE_CHECK",
+          "rule_name": "No Duplicates Detected",
+          "result": "PASS",
+          "observed_value": null,
+          "expected_value": null,
+          "explanation": "No duplicate or collision detected",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "PO_MATCHED",
+          "rule_name": "Purchase Order Matched",
+          "result": "FAIL",
+          "observed_value": "No PO matched",
+          "expected_value": null,
+          "explanation": "PO candidates found but absent reference requires reviewer selection (reviewer selection required)",
+          "severity": "ERROR"
+        },
+        {
+          "rule_id": "ARITHMETIC_GROSS",
+          "rule_name": "Gross = Subtotal + Tax",
+          "result": "PASS",
+          "observed_value": "Subtotal $500.00 + Tax $40.00 = $540.00",
+          "expected_value": "Gross $540.00 (tolerance: $0.01)",
+          "explanation": "Arithmetic reconciles (diff: $0.00)",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "ARITHMETIC_LINES",
+          "rule_name": "Line Items Sum to Subtotal",
+          "result": "PASS",
+          "observed_value": "Line sum: $500.00",
+          "expected_value": "Subtotal: $500.00",
+          "explanation": "Line items reconcile with subtotal",
+          "severity": "INFO"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "bbf73c71-fa1d-4915-ad59-0242cfcb6633",
+      "decision": "NEEDS_REVIEW",
+      "primary_reason_code": "PO_AMBIGUOUS",
+      "all_reason_codes": [
+        "PO_AMBIGUOUS"
+      ],
+      "explanation": "NEEDS_REVIEW: PO candidates found but absent reference requires reviewer selection (reviewer selection required)",
+      "next_action": "Select the correct PO and provide a reason.",
+      "responsible_role": "AP Reviewer",
+      "policy_version": "demo-policy-v1",
+      "ledger_snapshot": null,
+      "created_at": "2026-10-24T22:33:06.777288"
+    }
+  ],
+  "commitments": [],
+  "review_actions": [],
+  "budget": null
+}

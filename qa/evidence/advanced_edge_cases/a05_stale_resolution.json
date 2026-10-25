@@ -1,0 +1,18 @@
+{
+  "case_id": "9aaf4ded-4d94-4343-9d79-aad7c7091b62",
+  "attempt_id": "56531a5e-2d51-4337-be61-45b5a21cbdcb",
+  "decision": "NEEDS_REVIEW",
+  "primary_reason_code": "PO_CUMULATIVE_LIMIT_EXCEEDED",
+  "explanation": "NEEDS_REVIEW: EXCEEDS budget. Projected cumulative net $10,200.00 > ceiling $10,050.00. Exceeds by $150.00.",
+  "next_action": "Request PO amendment or obtain a corrected invoice.",
+  "is_byte_duplicate": false,
+  "po_candidates": [
+    {
+      "po_id": "PO-1002",
+      "description": "Q1 2026 Management Consulting",
+      "remaining_cents": 380000,
+      "match_reason": "EXPLICIT_REF",
+      "rank": 0
+    }
+  ]
+}

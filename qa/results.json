@@ -1,0 +1,573 @@
+{
+  "summary": {
+    "pass": 51,
+    "fail": 4,
+    "blocked": 1,
+    "not_run": 0,
+    "total": 56,
+    "timestamp": "2026-10-24T19:58:57.080326",
+    "target": "http://127.0.0.1:8111"
+  },
+  "results": [
+    {
+      "test_id": "SM-01",
+      "name": "Health endpoint responds",
+      "status": "PASS",
+      "expected": "ok or degraded",
+      "actual": "ok",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:37.262382"
+    },
+    {
+      "test_id": "SM-02",
+      "name": "Dashboard endpoint responds",
+      "status": "PASS",
+      "expected": "JSON with total_cases",
+      "actual": "['total_cases', 'auto_approved', 'needs_review', 'needs_information', 'blocked']",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:37.548650"
+    },
+    {
+      "test_id": "SM-03",
+      "name": "Fixtures endpoint returns list",
+      "status": "PASS",
+      "expected": ">=10 fixtures",
+      "actual": "10",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:37.816287"
+    },
+    {
+      "test_id": "SM-04",
+      "name": "HTML dashboard loads",
+      "status": "PASS",
+      "expected": "200 with InvoicePilot",
+      "actual": "200",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:38.102517"
+    },
+    {
+      "test_id": "SM-05",
+      "name": "Demo reset restores baseline",
+      "status": "FAIL",
+      "expected": "0 cases after reset",
+      "actual": "1",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:39.003858"
+    },
+    {
+      "test_id": "SM-06",
+      "name": "Tesseract OCR available",
+      "status": "BLOCKED",
+      "expected": "ok",
+      "actual": "warning",
+      "detail": "OCR not available; scanned PDF tests may degrade",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:39.310764"
+    },
+    {
+      "test_id": "HP-01",
+      "name": "Happy path decision = AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.232981"
+    },
+    {
+      "test_id": "HP-02",
+      "name": "Net = 250000 cents ($2,500.00)",
+      "status": "PASS",
+      "expected": "250000",
+      "actual": "250000",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452408"
+    },
+    {
+      "test_id": "HP-03",
+      "name": "Gross = 270000 cents ($2,700.00)",
+      "status": "PASS",
+      "expected": "270000",
+      "actual": "270000",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452593"
+    },
+    {
+      "test_id": "HP-04",
+      "name": "PO matched to PO-1001",
+      "status": "PASS",
+      "expected": "PO-1001",
+      "actual": "PO-1001",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452646"
+    },
+    {
+      "test_id": "HP-05",
+      "name": "Exactly one active commitment",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452696"
+    },
+    {
+      "test_id": "HP-06",
+      "name": "Commitment net = 250000 cents",
+      "status": "PASS",
+      "expected": "250000",
+      "actual": "250000",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452741"
+    },
+    {
+      "test_id": "HP-07",
+      "name": "Vendor = Apex Digital Solutions",
+      "status": "PASS",
+      "expected": "Apex Digital Solutions",
+      "actual": "Apex Digital Solutions",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452870"
+    },
+    {
+      "test_id": "HP-08",
+      "name": "Invoice # = INV-2026-0451",
+      "status": "PASS",
+      "expected": "INV-2026-0451",
+      "actual": "INV-2026-0451",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.452998"
+    },
+    {
+      "test_id": "HP-09",
+      "name": "All 11 stages completed",
+      "status": "PASS",
+      "expected": ">=11 COMPLETED",
+      "actual": "11",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.453110"
+    },
+    {
+      "test_id": "HP-10",
+      "name": "Arithmetic reconciliation PASS",
+      "status": "PASS",
+      "expected": "PASS",
+      "actual": "PASS",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.453265"
+    },
+    {
+      "test_id": "HP-11",
+      "name": "Dashboard total_cases = 1",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.675037"
+    },
+    {
+      "test_id": "HP-12",
+      "name": "Dashboard approved_net = 250000 cents",
+      "status": "PASS",
+      "expected": "250000",
+      "actual": "250000",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.675110"
+    },
+    {
+      "test_id": "HP-13",
+      "name": "Case persists on re-fetch (refresh simulation)",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED on re-fetch",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:40.882820"
+    },
+    {
+      "test_id": "DUP-01",
+      "name": "Identical bytes \u2192 byte duplicate link",
+      "status": "PASS",
+      "expected": "is_byte_duplicate=True",
+      "actual": "True",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:42.011382"
+    },
+    {
+      "test_id": "DUP-02",
+      "name": "Byte dup does not create new case",
+      "status": "FAIL",
+      "expected": "1",
+      "actual": "2",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:42.240102"
+    },
+    {
+      "test_id": "DUP-03",
+      "name": "Reissued dup \u2192 BLOCKED / DUPLICATE_INVOICE",
+      "status": "PASS",
+      "expected": "BLOCKED/DUPLICATE_INVOICE",
+      "actual": "BLOCKED/DUPLICATE_INVOICE",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:42.558726"
+    },
+    {
+      "test_id": "DUP-04",
+      "name": "Blocked dup has no active commitment",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:42.764615"
+    },
+    {
+      "test_id": "DUP-05",
+      "name": "Identity collision \u2192 NEEDS_REVIEW / INVOICE_IDENTITY_COLLISION",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "actual": "NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:43.080246"
+    },
+    {
+      "test_id": "DUP-06",
+      "name": "Identity collision has no commitment",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:43.284708"
+    },
+    {
+      "test_id": "CUM-01",
+      "name": "Cumulative A ($4,040) \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED (proj 1004000 <= 1005000)",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:44.158945"
+    },
+    {
+      "test_id": "CUM-02",
+      "name": "Cumulative B ($4,060) \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW (proj 1006000 > 1005000)",
+      "actual": "NEEDS_REVIEW/PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:45.031418"
+    },
+    {
+      "test_id": "CUM-03",
+      "name": "Over-budget has no commitment",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:45.244953"
+    },
+    {
+      "test_id": "CUM-04",
+      "name": "Sequential C ($20) after A \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW (1004000+2000=1006000 > 1005000)",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:46.397264"
+    },
+    {
+      "test_id": "CUM-05",
+      "name": "Exact ceiling ($4,050) \u2192 AUTO_APPROVED",
+      "status": "FAIL",
+      "expected": "AUTO_APPROVED (proj=1005000=ceiling)",
+      "actual": "NEEDS_INFORMATION",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:47.402833"
+    },
+    {
+      "test_id": "CUM-06",
+      "name": "One cent over ceiling ($4,050.01) \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW (proj=1005001>1005000)",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:48.276890"
+    },
+    {
+      "test_id": "CUM-07",
+      "name": "Pct-limited overage for $1,000 PO = $10",
+      "status": "PASS",
+      "expected": "1000",
+      "actual": "1000",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:48.276989"
+    },
+    {
+      "test_id": "AMB-01",
+      "name": "Ambiguous PO \u2192 NEEDS_REVIEW / PO_AMBIGUOUS",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW/PO_AMBIGUOUS",
+      "actual": "NEEDS_REVIEW/PO_AMBIGUOUS",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:49.100184"
+    },
+    {
+      "test_id": "AMB-02",
+      "name": "At least 2 PO candidates",
+      "status": "PASS",
+      "expected": ">=2",
+      "actual": "2",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:49.100353"
+    },
+    {
+      "test_id": "AMB-03",
+      "name": "No commitment before review",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:49.322590"
+    },
+    {
+      "test_id": "AMB-04",
+      "name": "PO selection \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:49.636827"
+    },
+    {
+      "test_id": "AMB-05",
+      "name": "Commitment created after PO selection",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:49.858453"
+    },
+    {
+      "test_id": "AMB-06",
+      "name": "Review action in history",
+      "status": "PASS",
+      "expected": ">=1",
+      "actual": "1",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:49.858622"
+    },
+    {
+      "test_id": "SCN-01",
+      "name": "Scanned missing # \u2192 NEEDS_INFORMATION",
+      "status": "PASS",
+      "expected": "NEEDS_INFORMATION/MISSING_*",
+      "actual": "NEEDS_INFORMATION/MISSING_INVOICE_NUMBER",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:50.757242"
+    },
+    {
+      "test_id": "SCN-02",
+      "name": "No commitment for NEEDS_INFORMATION",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:50.967567"
+    },
+    {
+      "test_id": "SCN-03",
+      "name": "Corrected revision processed",
+      "status": "PASS",
+      "expected": "decision returned",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:51.267042"
+    },
+    {
+      "test_id": "SCN-04",
+      "name": "\u22652 source documents after revision",
+      "status": "PASS",
+      "expected": ">=2",
+      "actual": "2",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:51.477730"
+    },
+    {
+      "test_id": "SCN-05",
+      "name": "\u22652 processing attempts",
+      "status": "PASS",
+      "expected": ">=2",
+      "actual": "2",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:51.477926"
+    },
+    {
+      "test_id": "META-01",
+      "name": "Renamed PDF produces same business result",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:52.351782"
+    },
+    {
+      "test_id": "META-02",
+      "name": "Stage events have real timestamps",
+      "status": "PASS",
+      "expected": "All events have started_at",
+      "actual": null,
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:52.557984"
+    },
+    {
+      "test_id": "FIN-01",
+      "name": "Budget uses net not gross",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED (net $2500 <= PO $2500)",
+      "actual": null,
+      "detail": "If gross ($2700) were compared, this would fail",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:53.428675"
+    },
+    {
+      "test_id": "ERR-01",
+      "name": "Empty file rejected",
+      "status": "PASS",
+      "expected": "400/422",
+      "actual": "400",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:53.632531"
+    },
+    {
+      "test_id": "ERR-02",
+      "name": "Non-PDF rejected",
+      "status": "PASS",
+      "expected": "400/422",
+      "actual": "400",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:53.855710"
+    },
+    {
+      "test_id": "ERR-03",
+      "name": "Malformed PDF does not auto-approve",
+      "status": "PASS",
+      "expected": "non-approval",
+      "actual": null,
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:54.088009"
+    },
+    {
+      "test_id": "ERR-04",
+      "name": "Path traversal filename sanitized",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "Upload accepted with sanitized name",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:54.326070"
+    },
+    {
+      "test_id": "DASH-01",
+      "name": "Total cases excludes byte dups",
+      "status": "FAIL",
+      "expected": "2",
+      "actual": "3",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:55.959673"
+    },
+    {
+      "test_id": "DASH-02",
+      "name": "auto_approved = 2",
+      "status": "PASS",
+      "expected": "2",
+      "actual": "2",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:55.959868"
+    },
+    {
+      "test_id": "DASH-03",
+      "name": "Approved net = sum of commitments",
+      "status": "PASS",
+      "expected": "600000",
+      "actual": "600000",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:55.959989"
+    },
+    {
+      "test_id": "AUD-01",
+      "name": "Export has case/attempts/decisions/commitments",
+      "status": "PASS",
+      "expected": "all sections",
+      "actual": "['case', 'source_documents', 'attempts', 'decisions', 'commitments', 'review_actions', 'budget']",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:57.078813"
+    },
+    {
+      "test_id": "AUD-02",
+      "name": "Export includes rule results",
+      "status": "PASS",
+      "expected": ">0 rules",
+      "actual": "8",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:57.079101"
+    },
+    {
+      "test_id": "AUD-03",
+      "name": "Export includes field evidences",
+      "status": "PASS",
+      "expected": ">0 evidences",
+      "actual": "11",
+      "detail": "",
+      "evidence_file": null,
+      "timestamp": "2026-10-24T19:58:57.079303"
+    }
+  ]
+}

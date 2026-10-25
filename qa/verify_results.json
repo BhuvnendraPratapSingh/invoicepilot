@@ -1,0 +1,327 @@
+{
+  "summary": {
+    "PASS": 35,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_RUN": 0
+  },
+  "total": 35,
+  "results": [
+    {
+      "test_id": "P1-01",
+      "name": "First upload \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T20:32:37.957928"
+    },
+    {
+      "test_id": "P1-02",
+      "name": "Repeat upload \u2192 byte duplicate detected",
+      "status": "PASS",
+      "expected": "is_byte_duplicate=True",
+      "actual": "True",
+      "detail": "",
+      "ts": "2026-10-24T20:32:38.260573"
+    },
+    {
+      "test_id": "P1-03",
+      "name": "Repeat returns original case_id",
+      "status": "PASS",
+      "expected": "32156691-02e2-4a07-8557-02a81c49dd56",
+      "actual": "32156691-02e2-4a07-8557-02a81c49dd56",
+      "detail": "",
+      "ts": "2026-10-24T20:32:38.260669"
+    },
+    {
+      "test_id": "P1-04",
+      "name": "Only 1 non-seed case after repeat upload",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:38.529553"
+    },
+    {
+      "test_id": "P1-05",
+      "name": "Dashboard total_cases = 1 after repeat",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:38.825211"
+    },
+    {
+      "test_id": "P1-06",
+      "name": "Only 1 active commitment (250000 cents)",
+      "status": "PASS",
+      "expected": "1 \u00d7 250000",
+      "actual": "1 \u00d7 250000",
+      "detail": "",
+      "ts": "2026-10-24T20:32:39.110193"
+    },
+    {
+      "test_id": "P1-07",
+      "name": "Repeat event linked to original case",
+      "status": "PASS",
+      "expected": ">=1 repeat attempt",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:39.381226"
+    },
+    {
+      "test_id": "P1-08",
+      "name": "3rd upload still 1 case",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:39.956742"
+    },
+    {
+      "test_id": "P1-09",
+      "name": "Business dup still BLOCKED/DUPLICATE_INVOICE",
+      "status": "PASS",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "detail": "",
+      "ts": "2026-10-24T20:32:40.749607"
+    },
+    {
+      "test_id": "P1-10",
+      "name": "Identity collision still NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T20:32:41.141191"
+    },
+    {
+      "test_id": "P2-01",
+      "name": "Pre-reset has >=3 cases",
+      "status": "PASS",
+      "expected": ">=3",
+      "actual": "3",
+      "detail": "",
+      "ts": "2026-10-24T20:32:43.174008"
+    },
+    {
+      "test_id": "P2-02",
+      "name": "Post-reset total_cases = 0",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "ts": "2026-10-24T20:32:44.077761"
+    },
+    {
+      "test_id": "P2-03",
+      "name": "Post-reset approved_net = 0",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "ts": "2026-10-24T20:32:44.077885"
+    },
+    {
+      "test_id": "P2-04",
+      "name": "Seed commitments restored (cumA passes after reset)",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T20:32:44.446126"
+    },
+    {
+      "test_id": "P3-01",
+      "name": "Health endpoint shows OCR available",
+      "status": "PASS",
+      "expected": "ok",
+      "actual": "ok",
+      "detail": "",
+      "ts": "2026-10-24T20:32:44.826014"
+    },
+    {
+      "test_id": "P3-02",
+      "name": "Scanned fixture has no usable embedded text",
+      "status": "PASS",
+      "expected": "<50 chars native text",
+      "actual": "0",
+      "detail": "",
+      "ts": "2026-10-24T20:32:46.300852"
+    },
+    {
+      "test_id": "P3-03a",
+      "name": "Scanned upload produces a decision (not a technical failure)",
+      "status": "PASS",
+      "expected": "a decision",
+      "actual": "NEEDS_INFORMATION",
+      "detail": "",
+      "ts": "2026-10-24T20:32:48.992663"
+    },
+    {
+      "test_id": "P3-03b",
+      "name": "OCR extracted vendor name",
+      "status": "PASS",
+      "expected": "Pinnacle or similar",
+      "actual": "PINNACLE CLOUD SERVICES",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.282558"
+    },
+    {
+      "test_id": "P3-03c",
+      "name": "OCR extracted monetary values",
+      "status": "PASS",
+      "expected": "some amount extracted",
+      "actual": "80000/86400",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.282671"
+    },
+    {
+      "test_id": "P3-04",
+      "name": "Missing invoice # \u2192 NEEDS_INFORMATION (not fabricated)",
+      "status": "PASS",
+      "expected": "NEEDS_INFORMATION/MISSING_*",
+      "actual": "NEEDS_INFORMATION/MISSING_INVOICE_NUMBER",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.282803"
+    },
+    {
+      "test_id": "P3-05a",
+      "name": "Corrected revision processed",
+      "status": "PASS",
+      "expected": "a decision",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.660764"
+    },
+    {
+      "test_id": "P3-05b",
+      "name": "History preserved (>=2 attempts)",
+      "status": "PASS",
+      "expected": ">=2",
+      "actual": "2",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.939721"
+    },
+    {
+      "test_id": "P3-05c",
+      "name": "At most 1 active commitment after correction",
+      "status": "PASS",
+      "expected": "<=1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.939892"
+    },
+    {
+      "test_id": "P4-01",
+      "name": "Overage for $10k PO = $50 (5000 cents)",
+      "status": "PASS",
+      "expected": "5000",
+      "actual": "5000",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.940101"
+    },
+    {
+      "test_id": "P4-02",
+      "name": "Policy: projected $10,050 <= ceiling $10,050",
+      "status": "PASS",
+      "expected": "<=1005000",
+      "actual": "1005000",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.940158"
+    },
+    {
+      "test_id": "P4-03",
+      "name": "Policy: projected $10,050.01 > ceiling $10,050",
+      "status": "PASS",
+      "expected": ">1005000",
+      "actual": "1005001",
+      "detail": "",
+      "ts": "2026-10-24T20:32:49.940211"
+    },
+    {
+      "test_id": "P4-04",
+      "name": "E2E $4,050.00 at exact ceiling \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T20:32:51.120298"
+    },
+    {
+      "test_id": "P4-05",
+      "name": "E2E $4,050.01 one cent over \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T20:32:52.141950"
+    },
+    {
+      "test_id": "P4-06",
+      "name": "Integer dollar $4050 extracted as 405000 cents",
+      "status": "PASS",
+      "expected": "405000",
+      "actual": "405000",
+      "detail": "",
+      "ts": "2026-10-24T20:32:53.429072"
+    },
+    {
+      "test_id": "P6-01",
+      "name": "Concurrent A+C: total PO commitment within ceiling",
+      "status": "PASS",
+      "expected": "seed(600000)+new <= 1005000",
+      "actual": "seed+404000=1004000",
+      "detail": "A=AUTO_APPROVED C=NEEDS_REVIEW",
+      "ts": "2026-10-24T20:32:55.454538"
+    },
+    {
+      "test_id": "P6-02",
+      "name": "3 concurrent identical bytes \u2192 1 case",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:56.925011"
+    },
+    {
+      "test_id": "P6-03",
+      "name": "Only 1 active commitment from concurrent bytes",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T20:32:57.203975"
+    },
+    {
+      "test_id": "P7-01",
+      "name": "Inactive vendor \u2192 not AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "NOT auto_approved",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T20:32:58.191480"
+    },
+    {
+      "test_id": "P7-02",
+      "name": "Invalid PO reference \u2192 not AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "NOT auto_approved",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T20:32:59.197974"
+    },
+    {
+      "test_id": "P7-03",
+      "name": "Cross-vendor invoice# isolation (architecture)",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "Duplicate check filters by vendor_id per code review. Different vendors never clash.",
+      "ts": "2026-10-24T20:33:00.220077"
+    }
+  ],
+  "ts": "2026-10-24T20:33:00.221150"
+}

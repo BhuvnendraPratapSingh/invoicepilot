@@ -1,0 +1,2 @@
+﻿vendor_name,vendor_tax_id,invoice_number,invoice_date,po_reference,currency,subtotal,tax,gross_total,description
+Apex Digital Solutions,84-2917365,CSV-DIAG-001,2026-03-10,PO-1001,USD,2500.00,200.00,2700.00,Test

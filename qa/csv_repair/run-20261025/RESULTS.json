@@ -1,0 +1,281 @@
+{
+  "summary": {
+    "pass": 34,
+    "fail": 0,
+    "total": 34
+  },
+  "results": [
+    {
+      "id": "D1-01",
+      "name": "Valid CSV row \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": ""
+    },
+    {
+      "id": "D1-02",
+      "name": "No failing rules",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "D1-03",
+      "name": "Commitment = 250000 cents (net)",
+      "status": "PASS",
+      "expected": "1x250000",
+      "actual": "1x250000",
+      "detail": ""
+    },
+    {
+      "id": "D2-01",
+      "name": "PDF happy path \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "AUTO_APPROVED",
+      "detail": ""
+    },
+    {
+      "id": "D2-02",
+      "name": "CSV same facts \u2192 AUTO_APPROVED (parity with PDF)",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": ""
+    },
+    {
+      "id": "D3-01",
+      "name": "$4,050 exact ceiling \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "AUTO_APPROVED",
+      "detail": "ALL_CHECKS_PASSED"
+    },
+    {
+      "id": "D3-02",
+      "name": "$4,050.01 one cent over \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "NEEDS_REVIEW",
+      "detail": ""
+    },
+    {
+      "id": "D3-03",
+      "name": "Over-ceiling CSV row has no commitment",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": ""
+    },
+    {
+      "id": "D4-00",
+      "name": "Setup: PDF original approved",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "D4-01",
+      "name": "CSV same invoice# + different amounts \u2192 IDENTITY_COLLISION",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "detail": ""
+    },
+    {
+      "id": "D5-01",
+      "name": "Empty CSV rejected",
+      "status": "PASS",
+      "expected": "400/422",
+      "actual": "400",
+      "detail": ""
+    },
+    {
+      "id": "D5-02",
+      "name": "Missing invoice_number \u2192 row error (not crash)",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": "invoice_number is required; subtotal or gross_total is required"
+    },
+    {
+      "id": "D5-03",
+      "name": "Unknown vendor \u2192 not AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "NEEDS_REVIEW",
+      "detail": ""
+    },
+    {
+      "id": "D5-04",
+      "name": "Unknown vendor CSV row has no commitment",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": ""
+    },
+    {
+      "id": "D6-01",
+      "name": "uploadArea element present in HTML",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "D6-02",
+      "name": "csvFileInput element present in HTML",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "D6-03",
+      "name": "fileInput element present in HTML",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "D7-01",
+      "name": "PDF happy path still AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "AUTO_APPROVED",
+      "detail": ""
+    },
+    {
+      "id": "D7-02",
+      "name": "PDF returns JSON (not HTML error)",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": "covered by D7-01"
+    },
+    {
+      "id": "EX-01",
+      "name": "Subtotal+tax != gross \u2192 NEEDS_REVIEW (arithmetic error)",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW",
+      "actual": "NEEDS_REVIEW",
+      "detail": "ARITHMETIC_ERROR"
+    },
+    {
+      "id": "EX-02",
+      "name": "Arithmetic rule reports FAIL",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "FAIL",
+      "detail": ""
+    },
+    {
+      "id": "EX-03",
+      "name": "Arithmetic error creates no commitment",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": ""
+    },
+    {
+      "id": "EX-04",
+      "name": "_parse_cents parses all monetary forms correctly",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "EX-05",
+      "name": "$1,000 PO overage = $10 (1000 cents)",
+      "status": "PASS",
+      "expected": "1000",
+      "actual": "1000",
+      "detail": ""
+    },
+    {
+      "id": "EX-06",
+      "name": "$5,000 PO overage = $50 (capped, 5000 cents)",
+      "status": "PASS",
+      "expected": "5000",
+      "actual": "5000",
+      "detail": ""
+    },
+    {
+      "id": "EX-07",
+      "name": "$10,000 PO overage = $50 (capped, 5000 cents)",
+      "status": "PASS",
+      "expected": "5000",
+      "actual": "5000",
+      "detail": ""
+    },
+    {
+      "id": "EX-08",
+      "name": "PDF original \u2192 AUTO_APPROVED (setup)",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "EX-09",
+      "name": "CSV same invoice# + different amount \u2192 IDENTITY_COLLISION",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "detail": ""
+    },
+    {
+      "id": "EX-10",
+      "name": "Original PDF commitment unchanged after CSV collision",
+      "status": "PASS",
+      "expected": "1x250000",
+      "actual": "1x250000",
+      "detail": ""
+    },
+    {
+      "id": "EX-11",
+      "name": "Multi-row: 3 rows processed",
+      "status": "PASS",
+      "expected": "3",
+      "actual": "3",
+      "detail": ""
+    },
+    {
+      "id": "EX-12",
+      "name": "Multi-row: valid rows get decisions",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "None",
+      "detail": ""
+    },
+    {
+      "id": "EX-13",
+      "name": "Multi-row: unknown vendor row not auto-approved",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "NEEDS_REVIEW",
+      "detail": ""
+    },
+    {
+      "id": "EX-14",
+      "name": "UTF-8 BOM CSV accepted and processed",
+      "status": "PASS",
+      "expected": "None",
+      "actual": "AUTO_APPROVED",
+      "detail": ""
+    },
+    {
+      "id": "EX-15",
+      "name": "PDF sent to CSV endpoint \u2192 400",
+      "status": "PASS",
+      "expected": "400",
+      "actual": "400",
+      "detail": ""
+    }
+  ]
+}

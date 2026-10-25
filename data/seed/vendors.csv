@@ -1,0 +1,6 @@
+id,name,tax_id,address,is_active,aliases
+V-001,Apex Digital Solutions,84-2917365,"100 Innovation Drive, Austin, TX 78701",true,"Apex Digital;Apex Digital Solutions LLC"
+V-002,Meridian Consulting Group,37-8104926,"250 Commerce Blvd, Suite 400, Chicago, IL 60601",true,"Meridian Consulting;Meridian Group"
+V-003,Pinnacle Cloud Services,61-5283047,"1800 Tech Park Way, Seattle, WA 98101",true,"Pinnacle Cloud;Pinnacle CS"
+V-004,Sterling Office Supply,29-6471830,"45 Main Street, Denver, CO 80202",false,"Sterling Supply;Sterling Office"
+V-005,Brightwave Analytics,52-3908174,"320 Data Lane, San Francisco, CA 94105",true,"Brightwave;Brightwave Analytics Inc"

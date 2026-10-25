@@ -1,0 +1,31 @@
+{
+  "status": "ok",
+  "checks": {
+    "database": {
+      "status": "ok",
+      "type": "SQLite"
+    },
+    "pdf_reader": {
+      "status": "ok",
+      "version": "2.0"
+    },
+    "ocr": {
+      "status": "warning",
+      "message": "Tesseract not available \u2014 scanned PDFs will fail"
+    },
+    "ai_extraction": {
+      "status": "disabled",
+      "message": "Running in local-only mode"
+    },
+    "storage": {
+      "status": "ok",
+      "path": "data\\qa_uploads",
+      "writable": true
+    },
+    "fixtures": {
+      "status": "ok",
+      "count": 10
+    }
+  },
+  "demo_mode": true
+}

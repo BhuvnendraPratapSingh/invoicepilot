@@ -1,0 +1,534 @@
+{
+  "case": {
+    "id": "d1b18ba1-a0cb-4489-acb4-58bbfb959379",
+    "vendor_id": "V-002",
+    "vendor_name": "Meridian Consulting Group",
+    "invoice_number": "MCG-2026-0501",
+    "currency": "USD",
+    "gross_cents": 21600,
+    "net_cents": 20000,
+    "po_id": "PO-1002",
+    "decision": "AUTO_APPROVED",
+    "reason_code": "ALL_CHECKS_PASSED",
+    "created_at": "2026-10-24T22:33:01.798846"
+  },
+  "source_documents": [
+    {
+      "id": "a2c17178-887d-4d85-ad72-9b9eab0895db",
+      "revision_number": 1,
+      "original_filename": "adv_stale_review_b.pdf",
+      "sha256_hash": "aa191a2ffcecf4ef280c271a7c57919a2f647e3d4d60fa02234cb0edb64a778e",
+      "file_size_bytes": 2234,
+      "page_count": 1,
+      "is_current": true,
+      "created_at": "2026-10-24T22:33:01.799008"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "dfadacaa-2799-4c3e-9680-f8868badff53",
+      "attempt_number": 1,
+      "execution_state": "COMPLETED",
+      "trigger": "upload",
+      "extraction_mode": "local",
+      "started_at": "2026-10-24T22:33:01.793770",
+      "completed_at": "2026-10-24T22:33:01.852655",
+      "error_message": null,
+      "events": [
+        {
+          "stage_name": "receive_validate",
+          "stage_order": 0,
+          "status": "COMPLETED",
+          "message": "Valid PDF: 1 pages, 2234 bytes",
+          "details": {
+            "page_count": 1,
+            "sha256": "aa191a2ffcecf4ef280c271a7c57919a2f647e3d4d60fa02234cb0edb64a778e"
+          },
+          "started_at": "2026-10-24T22:33:01.793770",
+          "completed_at": "2026-10-24T22:33:01.799363",
+          "duration_ms": 5
+        },
+        {
+          "stage_name": "byte_duplicate_check",
+          "stage_order": 1,
+          "status": "COMPLETED",
+          "message": "No byte-level duplicate found",
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.793770",
+          "completed_at": "2026-10-24T22:33:01.799540",
+          "duration_ms": 5
+        },
+        {
+          "stage_name": "text_extraction",
+          "stage_order": 2,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.831441",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "text_extraction",
+          "stage_order": 2,
+          "status": "COMPLETED",
+          "message": "Extracted text from 1 pages",
+          "details": {
+            "methods": {
+              "1": "NATIVE_TEXT"
+            },
+            "total_chars": 313
+          },
+          "started_at": "2026-10-24T22:33:01.831441",
+          "completed_at": "2026-10-24T22:33:01.832836",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "field_extraction",
+          "stage_order": 3,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.834042",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "field_extraction",
+          "stage_order": 3,
+          "status": "COMPLETED",
+          "message": "Extracted 4 key fields",
+          "details": {
+            "warnings": [],
+            "line_items": 1
+          },
+          "started_at": "2026-10-24T22:33:01.834042",
+          "completed_at": "2026-10-24T22:33:01.835764",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "field_validation",
+          "stage_order": 4,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.837238",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "field_validation",
+          "stage_order": 4,
+          "status": "COMPLETED",
+          "message": "All fields valid",
+          "details": {
+            "issues": []
+          },
+          "started_at": "2026-10-24T22:33:01.837238",
+          "completed_at": "2026-10-24T22:33:01.838549",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "vendor_resolution",
+          "stage_order": 5,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.839504",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "vendor_resolution",
+          "stage_order": 5,
+          "status": "COMPLETED",
+          "message": "Vendor resolved: Meridian Consulting Group",
+          "details": {
+            "resolved": true,
+            "vendor_id": "V-002",
+            "match_method": "TAX_ID",
+            "candidates": 1
+          },
+          "started_at": "2026-10-24T22:33:01.839504",
+          "completed_at": "2026-10-24T22:33:01.841032",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "duplicate_detection",
+          "stage_order": 6,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.842285",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "duplicate_detection",
+          "stage_order": 6,
+          "status": "COMPLETED",
+          "message": "No business duplicates detected",
+          "details": {
+            "is_duplicate": false,
+            "is_collision": false,
+            "duplicate_case": null
+          },
+          "started_at": "2026-10-24T22:33:01.842285",
+          "completed_at": "2026-10-24T22:33:01.843744",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "po_matching",
+          "stage_order": 7,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.844973",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "po_matching",
+          "stage_order": 7,
+          "status": "COMPLETED",
+          "message": "PO matched: PO-1002",
+          "details": {
+            "matched": true,
+            "po_id": "PO-1002",
+            "candidates": 1,
+            "requires_reviewer": false
+          },
+          "started_at": "2026-10-24T22:33:01.844973",
+          "completed_at": "2026-10-24T22:33:01.846932",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "policy_evaluation",
+          "stage_order": 8,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.848496",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "policy_evaluation",
+          "stage_order": 8,
+          "status": "COMPLETED",
+          "message": "Decision: AUTO_APPROVED \u2014 ALL_CHECKS_PASSED",
+          "details": {
+            "decision": "AUTO_APPROVED",
+            "reason_codes": [],
+            "rules_passed": 9,
+            "rules_failed": 0
+          },
+          "started_at": "2026-10-24T22:33:01.848496",
+          "completed_at": "2026-10-24T22:33:01.850594",
+          "duration_ms": 2
+        },
+        {
+          "stage_name": "commit_decision",
+          "stage_order": 9,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.851843",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "commit_decision",
+          "stage_order": 9,
+          "status": "COMPLETED",
+          "message": "Decision committed: AUTO_APPROVED",
+          "details": {
+            "has_reservation": true,
+            "reservation_cents": 20000
+          },
+          "started_at": "2026-10-24T22:33:01.851843",
+          "completed_at": "2026-10-24T22:33:01.852657",
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "publish_results",
+          "stage_order": 10,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T22:33:01.853483",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "publish_results",
+          "stage_order": 10,
+          "status": "COMPLETED",
+          "message": "Results published",
+          "details": {
+            "case_id": "d1b18ba1-a0cb-4489-acb4-58bbfb959379",
+            "decision": "AUTO_APPROVED"
+          },
+          "started_at": "2026-10-24T22:33:01.853483",
+          "completed_at": "2026-10-24T22:33:01.853636",
+          "duration_ms": 0
+        }
+      ],
+      "extracted_data": {
+        "vendor_name": "Meridian Consulting Group",
+        "normalized_vendor": "Meridian Consulting Group",
+        "vendor_tax_id": "37-8104926",
+        "invoice_number": "MCG-2026-0501",
+        "invoice_date": "March 13, 2026",
+        "due_date": null,
+        "currency": "USD",
+        "po_reference": "PO-1002",
+        "subtotal_cents": 20000,
+        "tax_cents": 1600,
+        "gross_total_cents": 21600,
+        "net_total_cents": 20000,
+        "tax_treatment": "EXCLUSIVE",
+        "line_items": [
+          {
+            "description": "Additional consulting follow-up \u2014 minor advisory",
+            "amount_cents": 20000,
+            "amount_display": "$200.00",
+            "raw_text": "Additional consulting follow-up \u2014 minor advisory\n$200.00"
+          }
+        ],
+        "extraction_method": "local",
+        "warnings": null
+      },
+      "field_evidences": [
+        {
+          "field_name": "vendor_name",
+          "raw_text": "Meridian Consulting Group",
+          "normalized_value": "Meridian Consulting Group",
+          "page_number": 1,
+          "text_span": "Meridian Consulting Group",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "vendor_tax_id",
+          "raw_text": "37-8104926",
+          "normalized_value": "37-8104926",
+          "page_number": 1,
+          "text_span": "IL 60601\nEIN: 37-8104926\nINVOICE\nIn",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "invoice_number",
+          "raw_text": "MCG-2026-0501",
+          "normalized_value": "MCG-2026-0501",
+          "page_number": 1,
+          "text_span": "6\nINVOICE\nInvoice Number:\nMCG-2026-0501\nDate:\nMarc",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "invoice_date",
+          "raw_text": "March 13, 2026",
+          "normalized_value": "March 13, 2026",
+          "page_number": 1,
+          "text_span": "2026-0501\nDate:\nMarch 13, 2026\nPurchase O",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "currency",
+          "raw_text": "USD",
+          "normalized_value": "USD",
+          "page_number": 1,
+          "text_span": ":\nPO-1002\nCurrency:\nUSD\nDescriptio",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "po_reference",
+          "raw_text": "PO-1002",
+          "normalized_value": "PO-1002",
+          "page_number": 1,
+          "text_span": "13, 2026\nPurchase Order:\nPO-1002\nCurrency:",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "subtotal",
+          "raw_text": "200.00",
+          "normalized_value": "20000",
+          "page_number": 1,
+          "text_span": "or advisory\n$200.00\nSubtotal\n$200.00\nTax (8%)\n$16.00\nTot",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "tax",
+          "raw_text": "16.00",
+          "normalized_value": "1600",
+          "page_number": 1,
+          "text_span": "00\nSubtotal\n$200.00\nTax (8%)\n$16.00\nTotal Due\n$216.00",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "gross_total",
+          "raw_text": "216.00",
+          "normalized_value": "21600",
+          "page_number": 1,
+          "text_span": ".00\nTax (8%)\n$16.00\nTotal Due\n$216.00",
+          "method": "NATIVE_TEXT",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "tax_treatment",
+          "raw_text": "TAX_EXCLUSIVE",
+          "normalized_value": "EXCLUSIVE",
+          "page_number": null,
+          "text_span": null,
+          "method": "DERIVED_ARITHMETIC",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": false
+        }
+      ],
+      "rules": [
+        {
+          "rule_id": "REQUIRED_FIELDS",
+          "rule_name": "Required Fields Present",
+          "result": "PASS",
+          "observed_value": "All present",
+          "expected_value": "invoice_number, net_total, currency, invoice_date",
+          "explanation": "All required fields present",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "CURRENCY_CHECK",
+          "rule_name": "Currency is USD",
+          "result": "PASS",
+          "observed_value": "USD",
+          "expected_value": "USD",
+          "explanation": "Currency USD is supported",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "DATE_CHECK",
+          "rule_name": "Invoice Date Not Future",
+          "result": "PASS",
+          "observed_value": "2026-03-13",
+          "expected_value": "On or before 2026-03-15",
+          "explanation": "Invoice date is valid",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "VENDOR_APPROVED",
+          "rule_name": "Vendor is Approved and Active",
+          "result": "PASS",
+          "observed_value": "Resolved: True, Active: True, ID: V-002",
+          "expected_value": "Vendor resolved and active",
+          "explanation": "Vendor V-002 is approved and active",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "DUPLICATE_CHECK",
+          "rule_name": "No Duplicates Detected",
+          "result": "PASS",
+          "observed_value": null,
+          "expected_value": null,
+          "explanation": "No duplicate or collision detected",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "PO_MATCHED",
+          "rule_name": "Purchase Order Matched",
+          "result": "PASS",
+          "observed_value": "PO: PO-1002",
+          "expected_value": null,
+          "explanation": "Matched to PO PO-1002",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "ARITHMETIC_GROSS",
+          "rule_name": "Gross = Subtotal + Tax",
+          "result": "PASS",
+          "observed_value": "Subtotal $200.00 + Tax $16.00 = $216.00",
+          "expected_value": "Gross $216.00 (tolerance: $0.01)",
+          "explanation": "Arithmetic reconciles (diff: $0.00)",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "ARITHMETIC_LINES",
+          "rule_name": "Line Items Sum to Subtotal",
+          "result": "PASS",
+          "observed_value": "Line sum: $200.00",
+          "expected_value": "Subtotal: $200.00",
+          "explanation": "Line items reconcile with subtotal",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "PO_BUDGET",
+          "rule_name": "PO Cumulative Budget Check",
+          "result": "PASS",
+          "observed_value": "PO net: $10,000.00, Committed: $6,000.00, This invoice: $200.00, Projected: $6,200.00",
+          "expected_value": "Ceiling: $10,050.00 (PO $10,000.00 + overage $50.00)",
+          "explanation": "WITHIN budget. Projected cumulative net $6,200.00 <= ceiling $10,050.00",
+          "severity": "INFO"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "e251242d-a082-4ea7-a95a-338a77c8abdb",
+      "decision": "AUTO_APPROVED",
+      "primary_reason_code": "ALL_CHECKS_PASSED",
+      "all_reason_codes": [],
+      "explanation": "All required checks passed. Approved for AP processing. No payment has been executed.",
+      "next_action": "Approved for AP processing. No payment has been executed.",
+      "responsible_role": "System",
+      "policy_version": "demo-policy-v1",
+      "ledger_snapshot": {
+        "po_net_cents": 1000000,
+        "committed_cents": 600000,
+        "projected_cents": 620000,
+        "allowed_overage_cents": 5000,
+        "allowed_ceiling_cents": 1005000
+      },
+      "created_at": "2026-10-24T22:33:01.852199"
+    }
+  ],
+  "commitments": [
+    {
+      "id": "64378479-8a07-45c1-8a5a-288a72d83f63",
+      "po_id": "PO-1002",
+      "net_amount_cents": 20000,
+      "net_display": "$200.00",
+      "status": "RESERVED",
+      "created_at": "2026-10-24T22:33:01.853137"
+    }
+  ],
+  "review_actions": [],
+  "budget": {
+    "po_id": "PO-1002",
+    "po_description": "Q1 2026 Management Consulting",
+    "po_net_cents": 1000000,
+    "po_net_display": "$10,000.00",
+    "committed_cents": 620000,
+    "committed_display": "$6,200.00",
+    "overage_cents": 5000,
+    "overage_display": "$50.00",
+    "ceiling_cents": 1005000,
+    "ceiling_display": "$10,050.00",
+    "remaining_cents": 385000,
+    "remaining_display": "$3,850.00"
+  }
+}

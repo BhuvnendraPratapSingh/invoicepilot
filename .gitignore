@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database (local only - Render uses ephemeral storage)
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# Uploads (local only)
+data/uploads/
+data/*_uploads_*/
+
+# Test artifacts
+data/audit_*
+data/qa_test*
+*.pyc
+.pytest_cache/
+htmlcov/
+.coverage
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,3 @@
+id,case_id,po_id,net_amount_cents,status,description
+SEED-CMT-001,SEED-CASE-001,PO-1002,600000,RESERVED,Prior partial invoice for Q1 consulting - Phase 1
+SEED-CMT-002,SEED-CASE-002,PO-1003,200000,RESERVED,Initial cloud assessment and migration planning

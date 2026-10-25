@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}System Health — InvoicePilot{% endblock %}
+{% block nav_health %}active{% endblock %}
+
+{% block content %}
+<div class="health-page">
+    <div class="page-header">
+        <div>
+            <h1>System Health</h1>
+            <p>Runtime dependency status and configuration.</p>
+        </div>
+    </div>
+    <div id="healthChecks" class="health-checks">
+        <div class="empty-state">Loading health checks…</div>
+    </div>
+    
+    <!-- OCR Setup Help -->
+    <div id="ocrHelp" class="ocr-help-card" hidden>
+        <h3>📄 Enable Scanned PDF Support</h3>
+        <p>To process scanned or image-based invoices, configure a cloud OCR provider:</p>
+        <ol>
+            <li>Go to <strong>Invoices</strong> page and click <strong>Settings</strong></li>
+            <li>Add your API key for OpenAI, Anthropic, or Google</li>
+            <li>Your key is used for billing — costs go to your account</li>
+        </ol>
+        <p style="font-size:13px;color:var(--text-muted);">
+            <strong>Get API keys:</strong>
+            <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI</a> ·
+            <a href="https://console.anthropic.com/settings/keys" target="_blank">Anthropic</a> ·
+            <a href="https://aistudio.google.com/app/apikey" target="_blank">Google</a>
+        </p>
+    </div>
+</div>
+
+<style>
+.ocr-help-card {
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--surface-2, #f8f9fa);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.ocr-help-card h3 { margin: 0 0 12px 0; }
+.ocr-help-card ol { margin: 12px 0; padding-left: 24px; }
+.ocr-help-card li { margin: 8px 0; }
+.ocr-help-card a { color: var(--ip-blue-ink); }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function loadHealth() {
+    try {
+        const resp = await fetch('/api/health');
+        const data = await resp.json();
+        const container = document.getElementById('healthChecks');
+
+        let html = '<div class="health-overall status-' + data.status + '">' +
+            'Overall: <strong>' + data.status.toUpperCase() + '</strong>' +
+            (data.demo_mode ? ' &middot; Demo Mode' : '') + '</div>';
+
+        const labels = {
+            'database': 'Database',
+            'pdf_reader': 'PDF Reader',
+            'ocr': 'OCR Engine',
+            'ai_extraction': 'AI Extraction',
+            'storage': 'File Storage',
+            'fixtures': 'Test Fixtures'
+        };
+
+        let ocrWarning = false;
+        for (const [name, check] of Object.entries(data.checks)) {
+            const icon = check.status === 'ok' ? '\u2713' :
+                         check.status === 'warning' ? '\u26A0' :
+                         check.status === 'disabled' ? '\u25CB' : '\u2717';
+            const label = labels[name] || name;
+            let detail = check.version || check.message || check.model ||
+                          (check.count !== undefined ? check.count + ' fixtures' : 'OK');
+            
+            // Show provider for OCR
+            if (name === 'ocr' && check.provider) {
+                detail = check.provider.charAt(0).toUpperCase() + check.provider.slice(1) + (check.version ? ' ' + check.version : '');
+            }
+            if (name === 'ocr' && check.status === 'warning') {
+                ocrWarning = true;
+            }
+            
+            html += '<div class="health-item status-' + check.status + '">' +
+                '<span class="health-icon">' + icon + '</span>' +
+                '<span class="health-name">' + label + '</span>' +
+                '<span class="health-detail">' + detail + '</span></div>';
+        }
+
+        container.innerHTML = html;
+        
+        // Show OCR help if not configured
+        if (ocrWarning) {
+            document.getElementById('ocrHelp').hidden = false;
+        }
+    } catch (e) {
+        document.getElementById('healthChecks').innerHTML =
+            '<div class="error-state">Failed to load health: ' + e.message + '</div>';
+    }
+}
+loadHealth();
+</script>
+{% endblock %}

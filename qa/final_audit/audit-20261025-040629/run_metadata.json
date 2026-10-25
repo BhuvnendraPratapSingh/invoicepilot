@@ -1,0 +1,8 @@
+{
+    "run_id": "audit-20261025-040629",
+    "port": 8222,
+    "database": "data/audit_test_audit-20261025-040629.db",
+    "uploads": "data/audit_uploads_audit-20261025-040629",
+    "started": "2026-10-25T04:06:30.4972569+05:30",
+    "python": "Python 3.13.2"
+}

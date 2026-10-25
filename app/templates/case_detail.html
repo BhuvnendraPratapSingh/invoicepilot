@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Case Detail — InvoicePilot{% endblock %}
+
+{% block content %}
+<div class="case-detail" id="caseDetail" data-case-id="{{ case_id }}">
+    <!-- Header -->
+    <div class="case-header">
+        <a href="/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to invoices
+        </a>
+        <h1>Invoice Case <span id="caseId">{{ case_id[:8] }}…</span></h1>
+        <div class="decision-badge" id="decisionBadge">Loading…</div>
+    </div>
+
+    <!-- Stage Timeline (top prominence) -->
+    <div class="card" style="margin-bottom: var(--sp-5);">
+        <div class="card-header">
+            <h3>Processing Timeline</h3>
+            <span class="text-sm text-muted" id="timelineStatus"></span>
+        </div>
+        <div class="card-body-compact">
+            <div id="stageTimeline" class="stage-timeline">
+                <div class="empty-state" style="padding: 24px;">Loading stages…</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two-column workspace -->
+    <div class="case-columns">
+        <!-- Left: Source Document -->
+        <div class="case-left">
+            <div class="panel">
+                <h3>Source Document</h3>
+                <div id="pdfPreview" class="pdf-preview">
+                    <div class="empty-state">Loading document preview…</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Decision + Evidence -->
+        <div class="case-right">
+            <!-- Decision Summary -->
+            <div class="panel" id="decisionPanel">
+                <h3>Decision</h3>
+                <div id="decisionContent" class="decision-content">
+                    <div class="empty-state" style="padding: 16px;">Processing…</div>
+                </div>
+            </div>
+
+            <!-- Extracted Data -->
+            <div class="panel">
+                <h3>Extracted Fields</h3>
+                <div id="extractedData" class="extracted-data">
+                    <div class="empty-state" style="padding: 16px;">Loading…</div>
+                </div>
+            </div>
+
+            <!-- Budget / Reconciliation -->
+            <div class="panel" id="budgetPanel" hidden>
+                <h3>PO Budget Reconciliation</h3>
+                <div id="budgetContent" class="budget-content"></div>
+            </div>
+
+            <!-- Rule Results -->
+            <div class="panel">
+                <h3>Policy Evaluation</h3>
+                <div id="ruleResults" class="rule-results">
+                    <div class="empty-state" style="padding: 16px;">Loading…</div>
+                </div>
+            </div>
+
+            <!-- PO Selection (ambiguous PO) -->
+            <div class="panel" id="poSelectionPanel" hidden>
+                <h3>Select Purchase Order</h3>
+                <div id="poSelectionContent" class="po-selection"></div>
+            </div>
+
+            <!-- Revision Upload (missing info) -->
+            <div class="panel" id="revisionPanel" hidden>
+                <h3>Attach Corrected Document</h3>
+                <div class="revision-upload">
+                    <input type="file" id="revisionFile" accept=".pdf" aria-label="Select corrected PDF">
+                    <input type="text" id="revisionReason" placeholder="Reason for revision"
+                           class="input-field" value="Corrected document from vendor" aria-label="Revision reason">
+                    <button class="btn btn-primary" onclick="attachRevision()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        Upload Revision &amp; Re-evaluate
+                    </button>
+                </div>
+            </div>
+
+            <!-- Review Actions (already shown) -->
+            <div class="panel" id="reviewPanel" hidden>
+                <h3>Review Actions</h3>
+                <div id="reviewContent" class="review-content"></div>
+            </div>
+
+            <!-- Audit Export -->
+            <div class="panel">
+                <h3>Audit &amp; Export</h3>
+                <div class="export-actions">
+                    <a id="auditExportLink" class="btn btn-sm" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Audit Bundle (JSON)
+                    </a>
+                    <span class="help-text">Complete evidence, rules, snapshots, and events</span>
+                </div>
+            </div>
+
+            <!-- Review History -->
+            <div class="panel" id="reviewHistoryPanel" hidden>
+                <h3>Review History</h3>
+                <div id="reviewHistory"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/case_detail.js"></script>
+{% endblock %}

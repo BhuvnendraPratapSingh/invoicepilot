@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+{% block title %}Invoices — InvoicePilot{% endblock %}
+{% block nav_dashboard %}active{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <!-- Header bar: title + upload actions -->
+    <div class="header-bar">
+        <div>
+            <h1>Invoice Operations</h1>
+            <p style="font-size:15px;color:var(--text-muted);margin-top:2px">Automated extraction, matching, and policy evaluation</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+            <button class="btn" onclick="openOcrSettings()" title="Configure OCR API keys">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Settings
+            </button>
+            <label class="btn btn-primary btn-upload" tabindex="0" title="Upload a single PDF invoice">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Upload PDF
+                <input type="file" id="fileInput" accept=".pdf" aria-label="Choose PDF file">
+            </label>
+            <label class="btn btn-upload" style="border-color:var(--ip-blue-ink);color:var(--ip-blue-ink);" tabindex="0" title="Upload a CSV file with multiple invoice rows">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                Upload CSV
+                <input type="file" id="csvFileInput" accept=".csv" aria-label="Choose CSV file">
+            </label>
+        </div>
+    </div>
+
+    <!-- Upload status feedback -->
+    <div id="uploadStatus" class="upload-status" hidden></div>
+
+    <!-- CSV results panel (shown after CSV upload) -->
+    <div id="csvResults" hidden style="margin-bottom:var(--sp-5);">
+        <div class="card">
+            <div class="card-header">
+                <h3>CSV Upload Results</h3>
+                <button class="btn btn-sm" onclick="document.getElementById('csvResults').hidden=true">Dismiss</button>
+            </div>
+            <div class="card-body" id="csvResultsBody"></div>
+        </div>
+    </div>
+
+    <!-- Compact drop zone -->
+    <div class="upload-zone" id="uploadArea" role="button" tabindex="0"
+         aria-label="Drop a PDF or CSV invoice file"
+         onclick="document.getElementById('fileInput').click()"
+         onkeydown="if(event.key==='Enter')document.getElementById('fileInput').click()">
+        <div class="upload-zone-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+        </div>
+        <p>Drop a PDF here, or use the buttons above for PDF / CSV</p>
+        <span class="upload-hint">PDF: single invoice · CSV: multiple rows · Max 10 MB</span>
+    </div>
+
+    <!-- Metrics strip -->
+    <div class="metrics-strip" id="metricsSection" aria-label="Summary metrics">
+        <div class="metric-cell"><span class="label">Total Cases</span><span class="value" id="metricTotal">—</span></div>
+        <div class="metric-cell attention"><span class="label">Needs Attention</span><span class="value" id="metricAttention">—</span></div>
+        <div class="metric-cell approved"><span class="label">Auto-Approved</span><span class="value" id="metricApproved">—</span></div>
+        <div class="metric-cell"><span class="label">Approved Net</span><span class="value" id="metricApprovedNet">—</span></div>
+    </div>
+
+    <!-- Invoice history table -->
+    <section class="cases-section" aria-label="Invoice history">
+        <div class="cases-header">
+            <h2>Invoice History</h2>
+            <div class="cases-filters">
+                <input type="text" id="searchInput" placeholder="Search vendor, invoice #, or case…"
+                       class="search-input" onkeyup="filterCases()" aria-label="Search invoices">
+                <select id="statusFilter" class="status-filter" onchange="filterCases()" aria-label="Filter by status">
+                    <option value="">All statuses</option>
+                    <option value="AUTO_APPROVED">Approved</option>
+                    <option value="NEEDS_REVIEW">Needs Review</option>
+                    <option value="NEEDS_INFORMATION">Needs Information</option>
+                    <option value="BLOCKED">Blocked</option>
+                </select>
+            </div>
+        </div>
+        <div id="casesTable" class="cases-table">
+            <div class="empty-state">No invoice cases yet. Upload a PDF to begin.</div>
+        </div>
+    </section>
+
+    <!-- Test Fixtures -->
+    <section class="fixtures-section">
+        <h3>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Test Fixtures
+            <button class="btn btn-sm" onclick="toggleFixtures()">Show / Hide</button>
+        </h3>
+        <div id="fixturesList" class="fixtures-list" hidden></div>
+    </section>
+
+    {% if demo_mode %}
+    <section class="demo-section">
+        <button class="btn btn-danger btn-sm" onclick="confirmReset()">Reset Demo</button>
+        <span class="help-text">Restores clean seed data. All processed invoices will be removed.</span>
+    </section>
+    {% endif %}
+</div>
+
+<!-- OCR Settings Modal -->
+<div id="ocrSettingsModal" class="modal" hidden>
+    <div class="modal-backdrop" onclick="closeOcrSettings()"></div>
+    <div class="modal-content" style="max-width:600px;">
+        <div class="modal-header">
+            <h2>OCR Settings</h2>
+            <button class="modal-close" onclick="closeOcrSettings()" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p style="margin-bottom:16px;color:var(--text-muted);">
+                Configure cloud OCR to process scanned invoices. <strong>Your API keys are used for billing</strong> — 
+                costs go to your account, not ours.
+            </p>
+            
+            <div id="ocrProvidersList"></div>
+            
+            <div class="ocr-add-key" style="margin-top:20px;padding:16px;background:var(--surface-2);border-radius:8px;">
+                <h4 style="margin:0 0 12px 0;">Add or Update API Key</h4>
+                <div style="display:flex;gap:8px;margin-bottom:8px;">
+                    <select id="ocrProviderSelect" style="padding:8px;border:1px solid var(--border);border-radius:4px;">
+                        <option value="openai">OpenAI (GPT-4 Vision)</option>
+                        <option value="anthropic">Anthropic (Claude Vision)</option>
+                        <option value="google">Google (Gemini Vision)</option>
+                    </select>
+                </div>
+                <div style="display:flex;gap:8px;">
+                    <input type="password" id="ocrApiKeyInput" placeholder="Paste your API key here..." 
+                           style="flex:1;padding:8px;border:1px solid var(--border);border-radius:4px;font-family:monospace;">
+                    <button class="btn btn-primary" onclick="saveOcrKey()">Save Key</button>
+                </div>
+                <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">
+                    Keys are stored securely in the database and persist across server restarts.
+                </p>
+            </div>
+            
+            <div id="ocrSaveStatus" style="margin-top:12px;" hidden></div>
+            
+            <div style="margin-top:20px;padding:12px;background:var(--info-bg, #e3f2fd);border-radius:8px;font-size:13px;">
+                <strong>Where to get API keys:</strong>
+                <ul style="margin:8px 0 0 20px;padding:0;">
+                    <li><a href="https://platform.openai.com/api-keys" target="_blank">OpenAI API Keys</a> — Uses GPT-4o-mini vision</li>
+                    <li><a href="https://console.anthropic.com/settings/keys" target="_blank">Anthropic API Keys</a> — Uses Claude Sonnet</li>
+                    <li><a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a> — Uses Gemini 1.5 Flash</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.modal { position:fixed; top:0; left:0; right:0; bottom:0; z-index:1000; display:flex; align-items:center; justify-content:center; }
+.modal[hidden] { display:none; }
+.modal-backdrop { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); }
+.modal-content { position:relative; background:var(--surface); border-radius:12px; padding:24px; max-height:90vh; overflow-y:auto; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
+.modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.modal-header h2 { margin:0; }
+.modal-close { background:none; border:none; font-size:24px; cursor:pointer; color:var(--text-muted); }
+.modal-close:hover { color:var(--text); }
+.ocr-provider-card { display:flex; align-items:center; justify-content:space-between; padding:12px; border:1px solid var(--border); border-radius:8px; margin-bottom:8px; }
+.ocr-provider-card.active { border-color:var(--approved); background:rgba(34,197,94,0.05); }
+.ocr-provider-info { display:flex; align-items:center; gap:12px; }
+.ocr-provider-status { font-size:12px; padding:4px 8px; border-radius:4px; }
+.ocr-provider-status.configured { background:var(--approved-bg); color:var(--approved); }
+.ocr-provider-status.not-configured { background:var(--surface-2); color:var(--text-muted); }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/dashboard.js"></script>
+<script>
+// OCR Settings
+function openOcrSettings() {
+    document.getElementById('ocrSettingsModal').hidden = false;
+    loadOcrSettings();
+}
+
+function closeOcrSettings() {
+    document.getElementById('ocrSettingsModal').hidden = true;
+}
+
+function loadOcrSettings() {
+    fetch('/api/settings/ocr')
+        .then(r => r.json())
+        .then(data => {
+            const container = document.getElementById('ocrProvidersList');
+            container.innerHTML = data.providers.map(p => `
+                <div class="ocr-provider-card ${p.id === data.active_provider ? 'active' : ''}">
+                    <div class="ocr-provider-info">
+                        <div>
+                            <strong>${p.name}</strong>
+                            ${p.id === data.active_provider ? '<span style="color:var(--approved);font-size:12px;"> ✓ Active</span>' : ''}
+                            <div style="font-size:12px;color:var(--text-muted);">
+                                ${p.configured ? 'Key: ' + (p.key_preview || '***') : 'Not configured'}
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <span class="ocr-provider-status ${p.configured ? 'configured' : 'not-configured'}">
+                            ${p.configured ? '✓ Ready' : 'Not Set'}
+                        </span>
+                        ${p.configured && p.id !== 'tesseract' ? `<button class="btn btn-sm" onclick="removeOcrKey('${p.id}')">Remove</button>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        })
+        .catch(err => {
+            document.getElementById('ocrProvidersList').innerHTML = '<p style="color:var(--danger)">Failed to load OCR settings</p>';
+        });
+}
+
+function saveOcrKey() {
+    const provider = document.getElementById('ocrProviderSelect').value;
+    const apiKey = document.getElementById('ocrApiKeyInput').value.trim();
+    const statusEl = document.getElementById('ocrSaveStatus');
+    
+    if (!apiKey) {
+        statusEl.hidden = false;
+        statusEl.innerHTML = '<p style="color:var(--danger)">Please enter an API key</p>';
+        return;
+    }
+    
+    statusEl.hidden = false;
+    statusEl.innerHTML = '<p>Validating key...</p>';
+    
+    fetch('/api/settings/ocr', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({provider, api_key: apiKey})
+    })
+    .then(r => r.json().then(data => ({ok: r.ok, data})))
+    .then(({ok, data}) => {
+        if (ok) {
+            statusEl.innerHTML = `<p style="color:var(--approved)">✓ ${data.message}</p>`;
+            document.getElementById('ocrApiKeyInput').value = '';
+            loadOcrSettings();
+            // Refresh sidebar status
+            setTimeout(() => location.reload(), 1000);
+        } else {
+            statusEl.innerHTML = `<p style="color:var(--danger)">✗ ${data.detail || 'Failed to save key'}</p>`;
+        }
+    })
+    .catch(err => {
+        statusEl.innerHTML = `<p style="color:var(--danger)">✗ Error: ${err.message}</p>`;
+    });
+}
+
+function removeOcrKey(provider) {
+    if (!confirm(`Remove ${provider} API key?`)) return;
+    
+    fetch(`/api/settings/ocr/${provider}`, {method: 'DELETE'})
+        .then(r => r.json())
+        .then(data => {
+            loadOcrSettings();
+            setTimeout(() => location.reload(), 500);
+        })
+        .catch(err => alert('Failed to remove key'));
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeOcrSettings();
+});
+</script>
+{% endblock %}

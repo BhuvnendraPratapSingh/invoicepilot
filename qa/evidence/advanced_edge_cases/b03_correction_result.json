@@ -1,0 +1,18 @@
+{
+  "case_id": "6b87d5bc-154c-45b7-a087-79bd7f3915b5",
+  "attempt_id": "756dae21-292a-466a-8ec1-697e8fcd11d8",
+  "decision": "NEEDS_REVIEW",
+  "primary_reason_code": "INVOICE_IDENTITY_COLLISION",
+  "explanation": "NEEDS_REVIEW: Invoice with same vendor (V-001) and number (ADV-CORR-1042) exists in case 73f601d6-c933-46a5-82e6-9f76d82ea5dd but with different amounts. May be a correction or attempted duplicate. | EXCEEDS budget. Projected cumulative net $4,300.00 > ceiling $2,525.00. Exceeds by $1,775.00.",
+  "next_action": "Request PO amendment or obtain a corrected invoice. Determine if this is a legitimate correction or attempted duplicate.",
+  "is_byte_duplicate": false,
+  "po_candidates": [
+    {
+      "po_id": "PO-1001",
+      "description": "Website Redesign Project",
+      "remaining_cents": 50000,
+      "match_reason": "EXPLICIT_REF",
+      "rank": 0
+    }
+  ]
+}

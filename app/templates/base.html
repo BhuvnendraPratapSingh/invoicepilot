@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}InvoicePilot{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" role="navigation" aria-label="Main navigation">
+            <a href="/" class="sidebar-brand" aria-label="Zamp — InvoicePilot demo home">
+                <!-- Authentic Zamp logo from zamp.ai/images/Home/v2/zamp_icon.svg -->
+                <svg class="sidebar-brand-logo" viewBox="0 0 49 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M0 16.815L9.23561 0H49L39.7644 16.815H0Z" fill="currentColor"/>
+                    <path d="M0 39.1603L9.23561 22.3438H49L39.7644 39.1603H0Z" fill="currentColor"/>
+                </svg>
+                <span class="sidebar-brand-text">
+                    <span class="sidebar-brand-name">InvoicePilot</span>
+                    <span class="sidebar-brand-sub">AP Workbench</span>
+                </span>
+            </a>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Navigation</div>
+                <a href="/" class="nav-item {% block nav_dashboard %}{% endblock %}">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    Invoices
+                </a>
+                <div class="nav-section-label">System</div>
+                <a href="/health-page" class="nav-item {% block nav_health %}{% endblock %}">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Health
+                </a>
+            </nav>
+
+            <div style="padding:0 8px 8px">
+                <div class="sidebar-status" id="sidebarOcr"><span class="status-dot" id="ocrDot"></span><span id="ocrLabel">OCR</span></div>
+                <div class="sidebar-status"><span class="status-dot" id="extractionDot"></span><span id="extractionLabel">Extraction: Local</span></div>
+                {% if demo_mode %}
+                <div class="sidebar-status" style="color:var(--review)"><span class="status-dot warn"></span>Demo · {{ business_date }}</div>
+                {% endif %}
+            </div>
+            <div class="sidebar-footer"></div>
+        </aside>
+
+        <div class="main-content">
+            <div class="page-content">{% block content %}{% endblock %}</div>
+            <footer class="site-footer">InvoicePilot — AP Decision Workbench</footer>
+        </div>
+    </div>
+    <script>
+    fetch('/api/health').then(r=>r.json()).then(h=>{
+        const o=h.checks?.ocr||{};
+        document.getElementById('ocrDot').className='status-dot '+(o.status==='ok'?'ok':'warn');
+        if(o.provider && o.provider !== 'tesseract') {
+            document.getElementById('ocrLabel').textContent='OCR: '+o.provider.charAt(0).toUpperCase()+o.provider.slice(1);
+        } else if(o.status==='ok') {
+            document.getElementById('ocrLabel').textContent='OCR: Tesseract '+(o.version||'').split('.').slice(0,2).join('.');
+        } else {
+            document.getElementById('ocrLabel').textContent='OCR: Not configured';
+        }
+        const a=h.checks?.ai_extraction||{};
+        document.getElementById('extractionDot').className='status-dot '+(a.status==='ok'?'ok':(a.status==='disabled'?'warn':'warn'));
+        document.getElementById('extractionLabel').textContent=a.status==='ok'?'Extraction: AI ('+a.provider+')':'Extraction: Local';
+    }).catch(()=>{});
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

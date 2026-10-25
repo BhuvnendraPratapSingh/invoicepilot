@@ -1,0 +1,625 @@
+{
+  "summary": {
+    "PASS": 63,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_RUN": 0,
+    "NOT_APPLICABLE": 5
+  },
+  "total": 68,
+  "results": [
+    {
+      "id": "REQ-01",
+      "name": "Server starts and responds",
+      "status": "PASS",
+      "expected": "ok",
+      "actual": "ok",
+      "detail": "",
+      "ts": "2026-10-24T22:39:55.176207"
+    },
+    {
+      "id": "REQ-02",
+      "name": "OCR dependency available",
+      "status": "PASS",
+      "expected": "ok",
+      "actual": "ok",
+      "detail": "",
+      "ts": "2026-10-24T22:39:55.176259"
+    },
+    {
+      "id": "REQ-03",
+      "name": "No API key required for local mode",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "AI extraction disabled = local mode works",
+      "ts": "2026-10-24T22:39:55.176309"
+    },
+    {
+      "id": "REQ-04",
+      "name": "Demo reset restores clean baseline",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "ts": "2026-10-24T22:39:55.587757"
+    },
+    {
+      "id": "REQ-05-Dashboard",
+      "name": "Dashboard HTML loads",
+      "status": "PASS",
+      "expected": "200",
+      "actual": "200",
+      "detail": "",
+      "ts": "2026-10-24T22:39:55.793279"
+    },
+    {
+      "id": "REQ-05-Health",
+      "name": "Health HTML loads",
+      "status": "PASS",
+      "expected": "200",
+      "actual": "200",
+      "detail": "",
+      "ts": "2026-10-24T22:39:56.004150"
+    },
+    {
+      "id": "REQ-06",
+      "name": "Fixtures available",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:39:56.220265"
+    },
+    {
+      "id": "HP-01",
+      "name": "Upload \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.256436"
+    },
+    {
+      "id": "HP-02",
+      "name": "Net = 250000 cents",
+      "status": "PASS",
+      "expected": "250000",
+      "actual": "250000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.471346"
+    },
+    {
+      "id": "HP-03",
+      "name": "Gross = 270000 cents",
+      "status": "PASS",
+      "expected": "270000",
+      "actual": "270000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.471436"
+    },
+    {
+      "id": "HP-04",
+      "name": "PO matched PO-1001",
+      "status": "PASS",
+      "expected": "PO-1001",
+      "actual": "PO-1001",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.471548"
+    },
+    {
+      "id": "HP-05",
+      "name": "Vendor = Apex (V-001)",
+      "status": "PASS",
+      "expected": null,
+      "actual": "Apex Digital Solutions",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.471619"
+    },
+    {
+      "id": "HP-06",
+      "name": "Invoice# extracted",
+      "status": "PASS",
+      "expected": null,
+      "actual": "INV-2026-0451",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.471756"
+    },
+    {
+      "id": "HP-07",
+      "name": "Exactly 1 commitment",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.673556"
+    },
+    {
+      "id": "HP-08",
+      "name": "Commitment = 250000 cents (net, not gross)",
+      "status": "PASS",
+      "expected": "250000",
+      "actual": "250000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.673637"
+    },
+    {
+      "id": "HP-09",
+      "name": "11 stages completed",
+      "status": "PASS",
+      "expected": ">=11",
+      "actual": "11",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.673674"
+    },
+    {
+      "id": "HP-10",
+      "name": "8 policy rules evaluated",
+      "status": "PASS",
+      "expected": ">=8",
+      "actual": "8",
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.673723"
+    },
+    {
+      "id": "HP-11",
+      "name": "Arithmetic reconciliation PASS",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.673855"
+    },
+    {
+      "id": "HP-12",
+      "name": "Case persists on re-fetch",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:39:57.889791"
+    },
+    {
+      "id": "HP-13",
+      "name": "Dashboard total_cases=1",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T22:39:58.104370"
+    },
+    {
+      "id": "HP-14",
+      "name": "Dashboard approved_net=250000",
+      "status": "PASS",
+      "expected": "250000",
+      "actual": "250000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:58.104492"
+    },
+    {
+      "id": "LAY-Ape",
+      "name": "Apex layout 1 \u2192 decision produced",
+      "status": "PASS",
+      "expected": null,
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:39:59.145158"
+    },
+    {
+      "id": "LAY-Mer",
+      "name": "Meridian layout 2 \u2192 decision produced",
+      "status": "PASS",
+      "expected": null,
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:39:59.423236"
+    },
+    {
+      "id": "LAY-Bri",
+      "name": "Brightwave layout 3 \u2192 decision produced",
+      "status": "PASS",
+      "expected": null,
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T22:39:59.707254"
+    },
+    {
+      "id": "FIN-01",
+      "name": "Overage $10k PO = $50 (5000 cents)",
+      "status": "PASS",
+      "expected": "5000",
+      "actual": "5000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:59.707474"
+    },
+    {
+      "id": "FIN-02",
+      "name": "Overage $1k PO = $10 (1000 cents)",
+      "status": "PASS",
+      "expected": "1000",
+      "actual": "1000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:59.707530"
+    },
+    {
+      "id": "FIN-03",
+      "name": "Overage $5k PO = $50 (5000 cents, capped)",
+      "status": "PASS",
+      "expected": "5000",
+      "actual": "5000",
+      "detail": "",
+      "ts": "2026-10-24T22:39:59.707572"
+    },
+    {
+      "id": "FIN-04",
+      "name": "PO budget compares net (not gross vs net PO)",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "Gross $2700 > PO $2500 but net $2500 = PO $2500 passes",
+      "ts": "2026-10-24T22:40:00.750456"
+    },
+    {
+      "id": "FIN-05",
+      "name": "$4040 net within ceiling",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:01.792279"
+    },
+    {
+      "id": "FIN-06",
+      "name": "$4060 net exceeds ceiling",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:02.882260"
+    },
+    {
+      "id": "FIN-07",
+      "name": "Sequential A+C exceeds (cumulative, not per-invoice)",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:04.226544"
+    },
+    {
+      "id": "EC1-01",
+      "name": "Byte repeat \u2192 is_byte_duplicate",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:05.562323"
+    },
+    {
+      "id": "EC1-02",
+      "name": "No orphan from byte repeat",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T22:40:05.762614"
+    },
+    {
+      "id": "EC1-03",
+      "name": "Business dup \u2192 BLOCKED",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:06.036145"
+    },
+    {
+      "id": "EC1-04",
+      "name": "Identity collision \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:06.341791"
+    },
+    {
+      "id": "EC2-01",
+      "name": "Cumulative budget (see FIN-05/06/07)",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "Covered by financial invariant tests",
+      "ts": "2026-10-24T22:40:06.342026"
+    },
+    {
+      "id": "EC3-01",
+      "name": "Ambiguous PO \u2192 NEEDS_REVIEW/PO_AMBIGUOUS",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:07.371025"
+    },
+    {
+      "id": "EC3-02",
+      "name": ">=2 PO candidates",
+      "status": "PASS",
+      "expected": null,
+      "actual": "2",
+      "detail": "",
+      "ts": "2026-10-24T22:40:07.371134"
+    },
+    {
+      "id": "EC3-03",
+      "name": "PO selection \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": null,
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:40:07.656287"
+    },
+    {
+      "id": "EC4-01",
+      "name": "Scanned \u2192 NEEDS_INFORMATION",
+      "status": "PASS",
+      "expected": null,
+      "actual": "NEEDS_INFORMATION",
+      "detail": "",
+      "ts": "2026-10-24T22:40:09.997329"
+    },
+    {
+      "id": "EC4-02",
+      "name": "Corrected revision processed",
+      "status": "PASS",
+      "expected": null,
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:40:10.277761"
+    },
+    {
+      "id": "ADV-A01",
+      "name": "Invoice A \u2192 PO_AMBIGUOUS",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:11.314733"
+    },
+    {
+      "id": "ADV-A02",
+      "name": "Invoice B \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:11.584717"
+    },
+    {
+      "id": "ADV-A03",
+      "name": "Stale resolution \u2192 CUMULATIVE_EXCEEDED",
+      "status": "PASS",
+      "expected": null,
+      "actual": "NEEDS_REVIEW/PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "detail": "",
+      "ts": "2026-10-24T22:40:11.845823"
+    },
+    {
+      "id": "ADV-A04",
+      "name": "No commitment from stale review",
+      "status": "PASS",
+      "expected": "0",
+      "actual": "0",
+      "detail": "",
+      "ts": "2026-10-24T22:40:12.050531"
+    },
+    {
+      "id": "ADV-B01",
+      "name": "Original \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:13.086336"
+    },
+    {
+      "id": "ADV-B02",
+      "name": "Correction \u2192 IDENTITY_COLLISION",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:13.403673"
+    },
+    {
+      "id": "ADV-B03",
+      "name": "Original commitment unchanged",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:13.623032"
+    },
+    {
+      "id": "ADV-C01",
+      "name": "Wrong-vendor PO \u2192 not approved",
+      "status": "PASS",
+      "expected": null,
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T22:40:14.705683"
+    },
+    {
+      "id": "ADV-C02",
+      "name": "No commitment",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:14.922112"
+    },
+    {
+      "id": "ADV-D01",
+      "name": "Fixture is image-only",
+      "status": "PASS",
+      "expected": "<50 chars",
+      "actual": "0",
+      "detail": "",
+      "ts": "2026-10-24T22:40:15.670239"
+    },
+    {
+      "id": "ADV-D02",
+      "name": "OCR produces decision",
+      "status": "PASS",
+      "expected": null,
+      "actual": "NEEDS_INFORMATION",
+      "detail": "",
+      "ts": "2026-10-24T22:40:17.271552"
+    },
+    {
+      "id": "ADV-D03",
+      "name": "Invoice# stays null",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:17.271631"
+    },
+    {
+      "id": "ADV-D04",
+      "name": "PO-1003 extracted (not confused with invoice#)",
+      "status": "PASS",
+      "expected": null,
+      "actual": "PO-1003",
+      "detail": "",
+      "ts": "2026-10-24T22:40:17.472670"
+    },
+    {
+      "id": "META-01",
+      "name": "Renamed PDF \u2192 same result",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:18.521148"
+    },
+    {
+      "id": "META-02",
+      "name": "Events have real timestamps",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:18.775560"
+    },
+    {
+      "id": "ERR-01",
+      "name": "Empty file rejected",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:19.017464"
+    },
+    {
+      "id": "ERR-02",
+      "name": "Non-PDF rejected",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:19.251865"
+    },
+    {
+      "id": "ERR-03",
+      "name": "Malformed PDF no approval",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:19.463791"
+    },
+    {
+      "id": "CONC-01",
+      "name": "3 concurrent identical bytes \u2192 1 case",
+      "status": "PASS",
+      "expected": "1",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T22:40:20.902986"
+    },
+    {
+      "id": "AUD-01",
+      "name": "Export has case+attempts+decisions+commitments",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:22.131085"
+    },
+    {
+      "id": "AUD-02",
+      "name": "Export has rules",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:22.131212"
+    },
+    {
+      "id": "AUD-03",
+      "name": "Export has field evidences",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:40:22.131262"
+    },
+    {
+      "id": "SCOPE-01",
+      "name": "No payment execution",
+      "status": "NOT_APPLICABLE",
+      "expected": null,
+      "actual": null,
+      "detail": "Explicitly out of scope per design",
+      "ts": "2026-10-24T22:40:22.131555"
+    },
+    {
+      "id": "SCOPE-02",
+      "name": "No real email/mailbox",
+      "status": "NOT_APPLICABLE",
+      "expected": null,
+      "actual": null,
+      "detail": "PDF upload is the intake boundary",
+      "ts": "2026-10-24T22:40:22.131610"
+    },
+    {
+      "id": "SCOPE-03",
+      "name": "No ERP posting",
+      "status": "NOT_APPLICABLE",
+      "expected": null,
+      "actual": null,
+      "detail": "Out of scope",
+      "ts": "2026-10-24T22:40:22.131653"
+    },
+    {
+      "id": "SCOPE-04",
+      "name": "No authentication",
+      "status": "NOT_APPLICABLE",
+      "expected": null,
+      "actual": null,
+      "detail": "Demo scope, documented limitation",
+      "ts": "2026-10-24T22:40:22.131701"
+    },
+    {
+      "id": "SCOPE-05",
+      "name": "No CSV export \u2192 no formula injection test",
+      "status": "NOT_APPLICABLE",
+      "expected": null,
+      "actual": null,
+      "detail": "Feature not implemented",
+      "ts": "2026-10-24T22:40:22.131725"
+    }
+  ],
+  "ts": "2026-10-24T22:40:22.135536"
+}

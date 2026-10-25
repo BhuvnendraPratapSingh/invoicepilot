@@ -1,0 +1,17 @@
+services:
+  invoicepilot:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=demo
+      - DEMO_MODE=true
+      - DEMO_BUSINESS_DATE=2026-03-15
+      - DATABASE_URL=sqlite:///./data/invoicepilot.db
+      - UPLOAD_DIR=./data/uploads
+    volumes:
+      - invoice-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  invoice-data:

@@ -1,0 +1,317 @@
+{
+  "summary": {
+    "pass": 34,
+    "fail": 0,
+    "blocked": 0,
+    "total": 34
+  },
+  "results": [
+    {
+      "id": "A-01",
+      "name": "Invoice A \u2192 NEEDS_REVIEW/PO_AMBIGUOUS",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW/PO_AMBIGUOUS",
+      "actual": "NEEDS_REVIEW/PO_AMBIGUOUS",
+      "detail": "",
+      "ts": "2026-10-24T22:33:01.366134"
+    },
+    {
+      "id": "A-02",
+      "name": "Invoice A has 0 active commitments",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:01.572710"
+    },
+    {
+      "id": "A-03",
+      "name": "Invoice B \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:33:01.856192"
+    },
+    {
+      "id": "A-04",
+      "name": "Invoice B has 1 commitment of $200 (20000 cents)",
+      "status": "PASS",
+      "expected": "1 x 20000",
+      "actual": "1 x 20000",
+      "detail": "",
+      "ts": "2026-10-24T22:33:02.084469"
+    },
+    {
+      "id": "A-05",
+      "name": "Stale review resolution \u2192 NEEDS_REVIEW/PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW/PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "actual": "NEEDS_REVIEW/PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "detail": "",
+      "ts": "2026-10-24T22:33:02.584263"
+    },
+    {
+      "id": "A-06",
+      "name": "Invoice A still has 0 commitments after review",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:02.819524"
+    },
+    {
+      "id": "A-07",
+      "name": "Review action recorded",
+      "status": "PASS",
+      "expected": ">=1 SELECT_PO",
+      "actual": "1",
+      "detail": "",
+      "ts": "2026-10-24T22:33:03.025924"
+    },
+    {
+      "id": "A-08",
+      "name": "Case A has >=2 processing attempts",
+      "status": "PASS",
+      "expected": ">=2",
+      "actual": "2",
+      "detail": "",
+      "ts": "2026-10-24T22:33:03.257877"
+    },
+    {
+      "id": "B-01",
+      "name": "Original \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:33:04.313640"
+    },
+    {
+      "id": "B-02",
+      "name": "Original commitment = $2,000 (200000 cents)",
+      "status": "PASS",
+      "expected": "1 x 200000",
+      "actual": "1 x 200000",
+      "detail": "",
+      "ts": "2026-10-24T22:33:04.536618"
+    },
+    {
+      "id": "B-03",
+      "name": "Correction \u2192 NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "status": "PASS",
+      "expected": "NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "actual": "NEEDS_REVIEW/INVOICE_IDENTITY_COLLISION",
+      "detail": "",
+      "ts": "2026-10-24T22:33:04.823228"
+    },
+    {
+      "id": "B-04",
+      "name": "Original commitment unchanged after correction attempt",
+      "status": "PASS",
+      "expected": "1 x 200000",
+      "actual": "1 x 200000",
+      "detail": "",
+      "ts": "2026-10-24T22:33:05.038261"
+    },
+    {
+      "id": "B-05",
+      "name": "Correction case has 0 commitments",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:05.253418"
+    },
+    {
+      "id": "B-06",
+      "name": "Re-upload correction \u2192 byte duplicate (no extra liability)",
+      "status": "PASS",
+      "expected": "is_byte_duplicate=True",
+      "actual": "True",
+      "detail": "",
+      "ts": "2026-10-24T22:33:05.478208"
+    },
+    {
+      "id": "B-07",
+      "name": "Re-upload original \u2192 byte duplicate",
+      "status": "PASS",
+      "expected": "is_byte_duplicate=True",
+      "actual": "True",
+      "detail": "",
+      "ts": "2026-10-24T22:33:05.710566"
+    },
+    {
+      "id": "C-01",
+      "name": "Wrong-vendor PO \u2192 NOT AUTO_APPROVED",
+      "status": "PASS",
+      "expected": "NOT AUTO_APPROVED",
+      "actual": "NEEDS_REVIEW",
+      "detail": "",
+      "ts": "2026-10-24T22:33:06.781797"
+    },
+    {
+      "id": "C-02",
+      "name": "No commitment created",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:07.000326"
+    },
+    {
+      "id": "C-03",
+      "name": "PO matching explains vendor mismatch",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "PO not matched: PO 'PO-1002' belongs to vendor V-002, not V-001",
+      "ts": "2026-10-24T22:33:07.206549"
+    },
+    {
+      "id": "C-04",
+      "name": "Same vendor's PO \u2192 AUTO_APPROVED (control)",
+      "status": "PASS",
+      "expected": "AUTO_APPROVED",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:33:08.228065"
+    },
+    {
+      "id": "D-01",
+      "name": "Fixture has <50 chars native text",
+      "status": "PASS",
+      "expected": "<50",
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:10.926926"
+    },
+    {
+      "id": "D-02",
+      "name": "OCR scan produces a decision (not technical failure)",
+      "status": "PASS",
+      "expected": "a decision",
+      "actual": "NEEDS_INFORMATION",
+      "detail": "",
+      "ts": "2026-10-24T22:33:12.619302"
+    },
+    {
+      "id": "D-03",
+      "name": "Invoice number is null (not fabricated from distractors)",
+      "status": "PASS",
+      "expected": "None",
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:12.826083"
+    },
+    {
+      "id": "D-04",
+      "name": "Decision = NEEDS_INFORMATION/MISSING_*",
+      "status": "PASS",
+      "expected": "NEEDS_INFORMATION",
+      "actual": "NEEDS_INFORMATION/MISSING_INVOICE_NUMBER",
+      "detail": "",
+      "ts": "2026-10-24T22:33:12.826265"
+    },
+    {
+      "id": "D-05",
+      "name": "No commitment for missing-info case",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:13.033375"
+    },
+    {
+      "id": "D-06",
+      "name": "PO reference extracted (not confused with invoice number)",
+      "status": "PASS",
+      "expected": "PO-1003",
+      "actual": "PO-1003",
+      "detail": "",
+      "ts": "2026-10-24T22:33:13.033502"
+    },
+    {
+      "id": "D-07",
+      "name": "Corrected revision processed",
+      "status": "PASS",
+      "expected": "a decision",
+      "actual": "AUTO_APPROVED",
+      "detail": "",
+      "ts": "2026-10-24T22:33:13.326280"
+    },
+    {
+      "id": "D-08",
+      "name": "Corrected version extracts invoice number",
+      "status": "PASS",
+      "expected": "PCS-ADV-2026-0099",
+      "actual": "PCS-ADV-2026-0099",
+      "detail": "",
+      "ts": "2026-10-24T22:33:13.533360"
+    },
+    {
+      "id": "D-09",
+      "name": "History preserved (>=2 attempts)",
+      "status": "PASS",
+      "expected": ">=2",
+      "actual": "2",
+      "detail": "",
+      "ts": "2026-10-24T22:33:13.752313"
+    },
+    {
+      "id": "REG-01",
+      "name": "Happy path \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:14.793548"
+    },
+    {
+      "id": "REG-02",
+      "name": "Reissued dup \u2192 BLOCKED",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:15.389690"
+    },
+    {
+      "id": "REG-03",
+      "name": "Cumulative A \u2192 AUTO_APPROVED",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:16.424242"
+    },
+    {
+      "id": "REG-04",
+      "name": "Cumulative B \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:17.451237"
+    },
+    {
+      "id": "REG-05",
+      "name": "Ambiguous PO \u2192 NEEDS_REVIEW",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:18.482785"
+    },
+    {
+      "id": "REG-06",
+      "name": "Scanned missing# \u2192 NEEDS_INFORMATION",
+      "status": "PASS",
+      "expected": null,
+      "actual": null,
+      "detail": "",
+      "ts": "2026-10-24T22:33:20.929722"
+    }
+  ],
+  "ts": "2026-10-24T22:33:20.930495"
+}

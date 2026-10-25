@@ -1,0 +1,14 @@
+{
+  "total_cases": 3,
+  "auto_approved": 2,
+  "needs_review": 0,
+  "needs_information": 0,
+  "blocked": 0,
+  "failed_attempts": 0,
+  "approved_net_cents": 600000,
+  "approved_net_display": "$6,000.00",
+  "straight_through_rate": 100.0,
+  "completed_evaluations": 2,
+  "demo_business_date": "2026-03-15",
+  "demo_mode": true
+}

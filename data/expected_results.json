@@ -1,0 +1,94 @@
+{
+  "_note": "TEST-ONLY manifest. Not imported by application code. Used to validate fixture outcomes.",
+  "fixtures": {
+    "happy_path_apex_invoice.pdf": {
+      "expected_decision": "AUTO_APPROVED",
+      "expected_reason": "ALL_CHECKS_PASSED",
+      "expected_net_cents": 250000,
+      "expected_gross_cents": 270000,
+      "expected_vendor_id": "V-001",
+      "expected_po_id": "PO-1001",
+      "expected_invoice_number": "INV-2026-0451",
+      "notes": "Clean invoice with explicit PO, all fields present and reconciled"
+    },
+    "duplicate_original_meridian.pdf": {
+      "expected_decision": "AUTO_APPROVED",
+      "expected_reason": "ALL_CHECKS_PASSED",
+      "expected_net_cents": 350000,
+      "expected_gross_cents": 378000,
+      "expected_vendor_id": "V-002",
+      "expected_po_id": "PO-1002",
+      "expected_invoice_number": "MCG-2026-0088",
+      "notes": "Setup fixture — becomes the approved original for duplicate tests"
+    },
+    "duplicate_reissued_meridian.pdf": {
+      "expected_decision": "BLOCKED",
+      "expected_reason": "DUPLICATE_INVOICE",
+      "notes": "Same vendor/invoice#/amounts as approved original, different PDF layout. No new reservation."
+    },
+    "duplicate_collision_meridian.pdf": {
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "INVOICE_IDENTITY_COLLISION",
+      "notes": "Same vendor/invoice# but different amounts ($3,800 vs $3,500). May be correction or attempted duplicate."
+    },
+    "cumulative_a_meridian.pdf": {
+      "expected_decision": "AUTO_APPROVED",
+      "expected_reason": "ALL_CHECKS_PASSED",
+      "expected_net_cents": 404000,
+      "expected_gross_cents": 436320,
+      "prereqs": "Fresh reset (PO-1002: $10,000 PO, $6,000 seed committed)",
+      "budget": {
+        "po_net_cents": 1000000,
+        "seed_committed_cents": 600000,
+        "overage_cents": 5000,
+        "ceiling_cents": 1005000,
+        "projected_cents": 1004000,
+        "within_ceiling": true
+      },
+      "notes": "Net $4,040 → projected $10,040 ≤ ceiling $10,050. Approved with tolerance warning."
+    },
+    "cumulative_b_meridian.pdf": {
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "expected_net_cents": 406000,
+      "prereqs": "Fresh reset (same seed as A)",
+      "budget": {
+        "projected_cents": 1006000,
+        "ceiling_cents": 1005000,
+        "excess_cents": 1000
+      },
+      "notes": "Net $4,060 → projected $10,060 > ceiling $10,050. Exceeds by $10."
+    },
+    "cumulative_c_meridian.pdf": {
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "PO_CUMULATIVE_LIMIT_EXCEEDED",
+      "prereqs": "After cumulative_a approved (committed $6,000 + $4,040 = $10,040)",
+      "budget": {
+        "projected_cents": 1006000,
+        "notes": "$10,040 + $20 = $10,060 > ceiling $10,050"
+      },
+      "notes": "Small $20 follow-up tips cumulative past ceiling after A. No fresh $50 tolerance."
+    },
+    "ambiguous_po_brightwave.pdf": {
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "PO_AMBIGUOUS",
+      "expected_net_cents": 150000,
+      "expected_vendor_id": "V-005",
+      "expected_po_candidates": ["PO-1005", "PO-1006"],
+      "notes": "No PO reference. Two plausible POs for Brightwave. Reviewer must select."
+    },
+    "scanned_missing_number_pinnacle.pdf": {
+      "expected_decision": "NEEDS_INFORMATION",
+      "expected_reason": "MISSING_INVOICE_NUMBER",
+      "notes": "Image-only scan. Invoice number genuinely absent. No reservation. OCR required."
+    },
+    "scanned_corrected_pinnacle.pdf": {
+      "expected_decision": "AUTO_APPROVED",
+      "expected_reason": "ALL_CHECKS_PASSED",
+      "expected_net_cents": 80000,
+      "expected_invoice_number": "PCS-2026-0312",
+      "prereqs": "Attached as revision to scanned case",
+      "notes": "Corrected version with invoice number PCS-2026-0312 added."
+    }
+  }
+}

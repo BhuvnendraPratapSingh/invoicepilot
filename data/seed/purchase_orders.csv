@@ -1,0 +1,8 @@
+id,vendor_id,description,service_scope,net_amount_cents,currency,status
+PO-1001,V-001,Website Redesign Project,UI/UX design and frontend development for corporate website refresh,250000,USD,OPEN
+PO-1002,V-002,Q1 2026 Management Consulting,Strategic consulting for Q1 2026 organizational restructuring,1000000,USD,OPEN
+PO-1003,V-003,Cloud Infrastructure Migration,AWS cloud migration and DevOps setup for production workloads,500000,USD,OPEN
+PO-1004,V-001,SEO and Digital Marketing,Search engine optimization and digital marketing campaign management,150000,USD,OPEN
+PO-1005,V-005,Data Pipeline Development,ETL pipeline development and data warehouse optimization,300000,USD,OPEN
+PO-1006,V-005,Business Intelligence Dashboards,BI dashboard design and implementation for executive reporting,280000,USD,OPEN
+PO-1007,V-002,Q2 2026 Strategy Advisory,Strategic advisory services for Q2 2026 market expansion planning,800000,USD,OPEN

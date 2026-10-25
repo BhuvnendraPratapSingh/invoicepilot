@@ -1,0 +1,535 @@
+{
+  "case": {
+    "id": "f48b8f5b-b022-4594-9260-761c24ad730d",
+    "vendor_id": "V-003",
+    "vendor_name": "Pinnacle Cloud Services",
+    "invoice_number": null,
+    "currency": "USD",
+    "gross_cents": 86400,
+    "net_cents": 80000,
+    "po_id": "PO-1003",
+    "decision": "NEEDS_INFORMATION",
+    "reason_code": "MISSING_INVOICE_NUMBER",
+    "created_at": "2026-10-24T20:32:47.241760"
+  },
+  "source_documents": [
+    {
+      "id": "fddaf6ef-9979-4e8c-ad24-b4094b83db7c",
+      "revision_number": 1,
+      "original_filename": "scanned_missing_number_pinnacle.pdf",
+      "sha256_hash": "5d036932e44d4d5099635508d8afc0cd5098737110c17be5e46204a76f13a33c",
+      "file_size_bytes": 280511,
+      "page_count": 1,
+      "is_current": true,
+      "created_at": "2026-10-24T20:32:47.241974"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "81b3d919-27d7-4728-a292-85fb0db55d41",
+      "attempt_number": 1,
+      "execution_state": "COMPLETED",
+      "trigger": "upload",
+      "extraction_mode": "local",
+      "started_at": "2026-10-24T20:32:47.236283",
+      "completed_at": "2026-10-24T20:32:48.987069",
+      "error_message": null,
+      "events": [
+        {
+          "stage_name": "receive_validate",
+          "stage_order": 0,
+          "status": "COMPLETED",
+          "message": "Valid PDF: 1 pages, 280511 bytes",
+          "details": {
+            "page_count": 1,
+            "sha256": "5d036932e44d4d5099635508d8afc0cd5098737110c17be5e46204a76f13a33c"
+          },
+          "started_at": "2026-10-24T20:32:47.236283",
+          "completed_at": "2026-10-24T20:32:47.242428",
+          "duration_ms": 6
+        },
+        {
+          "stage_name": "byte_duplicate_check",
+          "stage_order": 1,
+          "status": "COMPLETED",
+          "message": "No byte-level duplicate found",
+          "details": null,
+          "started_at": "2026-10-24T20:32:47.236283",
+          "completed_at": "2026-10-24T20:32:47.242691",
+          "duration_ms": 6
+        },
+        {
+          "stage_name": "text_extraction",
+          "stage_order": 2,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:47.342335",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "text_extraction",
+          "stage_order": 2,
+          "status": "COMPLETED",
+          "message": "Extracted text from 1 pages",
+          "details": {
+            "methods": {
+              "1": "OCR"
+            },
+            "total_chars": 326
+          },
+          "started_at": "2026-10-24T20:32:47.342335",
+          "completed_at": "2026-10-24T20:32:48.957777",
+          "duration_ms": 1615
+        },
+        {
+          "stage_name": "field_extraction",
+          "stage_order": 3,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.960708",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "field_extraction",
+          "stage_order": 3,
+          "status": "COMPLETED",
+          "message": "Extracted 3 key fields",
+          "details": {
+            "warnings": [
+              "Invoice number not found in document"
+            ],
+            "line_items": 1
+          },
+          "started_at": "2026-10-24T20:32:48.960708",
+          "completed_at": "2026-10-24T20:32:48.963443",
+          "duration_ms": 2
+        },
+        {
+          "stage_name": "field_validation",
+          "stage_order": 4,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.965638",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "field_validation",
+          "stage_order": 4,
+          "status": "COMPLETED",
+          "message": "Validation: 1 issues",
+          "details": {
+            "issues": [
+              "Missing invoice number"
+            ]
+          },
+          "started_at": "2026-10-24T20:32:48.965638",
+          "completed_at": "2026-10-24T20:32:48.967358",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "vendor_resolution",
+          "stage_order": 5,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.968973",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "vendor_resolution",
+          "stage_order": 5,
+          "status": "COMPLETED",
+          "message": "Vendor resolved: Pinnacle Cloud Services",
+          "details": {
+            "resolved": true,
+            "vendor_id": "V-003",
+            "match_method": "TAX_ID",
+            "candidates": 1
+          },
+          "started_at": "2026-10-24T20:32:48.968973",
+          "completed_at": "2026-10-24T20:32:48.971292",
+          "duration_ms": 2
+        },
+        {
+          "stage_name": "duplicate_detection",
+          "stage_order": 6,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.973295",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "duplicate_detection",
+          "stage_order": 6,
+          "status": "COMPLETED",
+          "message": "No business duplicates detected",
+          "details": {
+            "is_duplicate": false,
+            "is_collision": false,
+            "duplicate_case": null
+          },
+          "started_at": "2026-10-24T20:32:48.973295",
+          "completed_at": "2026-10-24T20:32:48.975227",
+          "duration_ms": 1
+        },
+        {
+          "stage_name": "po_matching",
+          "stage_order": 7,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.976958",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "po_matching",
+          "stage_order": 7,
+          "status": "COMPLETED",
+          "message": "PO matched: PO-1003",
+          "details": {
+            "matched": true,
+            "po_id": "PO-1003",
+            "candidates": 1,
+            "requires_reviewer": false
+          },
+          "started_at": "2026-10-24T20:32:48.976958",
+          "completed_at": "2026-10-24T20:32:48.979605",
+          "duration_ms": 2
+        },
+        {
+          "stage_name": "policy_evaluation",
+          "stage_order": 8,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.981568",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "policy_evaluation",
+          "stage_order": 8,
+          "status": "COMPLETED",
+          "message": "Decision: NEEDS_INFORMATION \u2014 MISSING_INVOICE_NUMBER",
+          "details": {
+            "decision": "NEEDS_INFORMATION",
+            "reason_codes": [
+              "MISSING_INVOICE_NUMBER"
+            ],
+            "rules_passed": 8,
+            "rules_failed": 1
+          },
+          "started_at": "2026-10-24T20:32:48.981568",
+          "completed_at": "2026-10-24T20:32:48.984265",
+          "duration_ms": 2
+        },
+        {
+          "stage_name": "commit_decision",
+          "stage_order": 9,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.986193",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "commit_decision",
+          "stage_order": 9,
+          "status": "COMPLETED",
+          "message": "Decision committed: NEEDS_INFORMATION",
+          "details": {
+            "has_reservation": false,
+            "reservation_cents": null
+          },
+          "started_at": "2026-10-24T20:32:48.986193",
+          "completed_at": "2026-10-24T20:32:48.987072",
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "publish_results",
+          "stage_order": 10,
+          "status": "STARTED",
+          "message": null,
+          "details": null,
+          "started_at": "2026-10-24T20:32:48.988166",
+          "completed_at": null,
+          "duration_ms": 0
+        },
+        {
+          "stage_name": "publish_results",
+          "stage_order": 10,
+          "status": "COMPLETED",
+          "message": "Results published",
+          "details": {
+            "case_id": "f48b8f5b-b022-4594-9260-761c24ad730d",
+            "decision": "NEEDS_INFORMATION"
+          },
+          "started_at": "2026-10-24T20:32:48.988166",
+          "completed_at": "2026-10-24T20:32:48.988383",
+          "duration_ms": 0
+        }
+      ],
+      "extracted_data": {
+        "vendor_name": "PINNACLE CLOUD SERVICES",
+        "normalized_vendor": "PINNACLE CLOUD SERVICES",
+        "vendor_tax_id": "61-5283047",
+        "invoice_number": null,
+        "invoice_date": "March 13, 2026",
+        "due_date": null,
+        "currency": "USD",
+        "po_reference": "PO-1003",
+        "subtotal_cents": 80000,
+        "tax_cents": 6400,
+        "gross_total_cents": 86400,
+        "net_total_cents": 80000,
+        "tax_treatment": "EXCLUSIVE",
+        "line_items": [
+          {
+            "description": "Cloud infrastructure migration services - Phase 1",
+            "amount_cents": 80000,
+            "amount_display": "$800.00",
+            "raw_text": "Cloud infrastructure migration services - Phase 1 $800.00"
+          }
+        ],
+        "extraction_method": "local",
+        "warnings": [
+          "Invoice number not found in document"
+        ]
+      },
+      "field_evidences": [
+        {
+          "field_name": "vendor_name",
+          "raw_text": "PINNACLE CLOUD SERVICES",
+          "normalized_value": "PINNACLE CLOUD SERVICES",
+          "page_number": 1,
+          "text_span": "PINNACLE CLOUD SERVICES",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "vendor_tax_id",
+          "raw_text": "61-5283047",
+          "normalized_value": "61-5283047",
+          "page_number": 1,
+          "text_span": "WA 98101\nTax ID: 61-5283047\n\nINVOICE",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "invoice_number",
+          "raw_text": null,
+          "normalized_value": null,
+          "page_number": null,
+          "text_span": null,
+          "method": "NONE",
+          "verification_status": "MISSING",
+          "is_explicitly_present": false
+        },
+        {
+          "field_name": "invoice_date",
+          "raw_text": "March 13, 2026",
+          "normalized_value": "March 13, 2026",
+          "page_number": 1,
+          "text_span": "-5283047\n\nINVOICE\n\nDate: March 13, 2026\nPurchase O",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "currency",
+          "raw_text": "USD",
+          "normalized_value": "USD",
+          "page_number": 1,
+          "text_span": ": PO-1003\nCurrency: USD\n\nTerms: Ne",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "po_reference",
+          "raw_text": "PO-1003",
+          "normalized_value": "PO-1003",
+          "page_number": 1,
+          "text_span": "13, 2026\nPurchase Order: PO-1003\nCurrency:",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "subtotal",
+          "raw_text": "800.00",
+          "normalized_value": "80000",
+          "page_number": 1,
+          "text_span": "s - Phase 1 $800.00\nSubtotal: $800.00\nTax (8%): $64.00\n\nT",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "tax",
+          "raw_text": "64.00",
+          "normalized_value": "6400",
+          "page_number": 1,
+          "text_span": "0\nSubtotal: $800.00\nTax (8%): $64.00\n\nTotal Due: $864.00",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "gross_total",
+          "raw_text": "864.00",
+          "normalized_value": "86400",
+          "page_number": 1,
+          "text_span": "0\nTax (8%): $64.00\n\nTotal Due: $864.00",
+          "method": "OCR",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": true
+        },
+        {
+          "field_name": "tax_treatment",
+          "raw_text": "TAX_EXCLUSIVE",
+          "normalized_value": "EXCLUSIVE",
+          "page_number": null,
+          "text_span": null,
+          "method": "DERIVED_ARITHMETIC",
+          "verification_status": "VERIFIED",
+          "is_explicitly_present": false
+        }
+      ],
+      "rules": [
+        {
+          "rule_id": "REQUIRED_FIELDS",
+          "rule_name": "Required Fields Present",
+          "result": "FAIL",
+          "observed_value": "invoice_number",
+          "expected_value": "invoice_number, net_total, currency, invoice_date",
+          "explanation": "Missing required fields: invoice_number",
+          "severity": "ERROR"
+        },
+        {
+          "rule_id": "CURRENCY_CHECK",
+          "rule_name": "Currency is USD",
+          "result": "PASS",
+          "observed_value": "USD",
+          "expected_value": "USD",
+          "explanation": "Currency USD is supported",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "DATE_CHECK",
+          "rule_name": "Invoice Date Not Future",
+          "result": "PASS",
+          "observed_value": "2026-03-13",
+          "expected_value": "On or before 2026-03-15",
+          "explanation": "Invoice date is valid",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "VENDOR_APPROVED",
+          "rule_name": "Vendor is Approved and Active",
+          "result": "PASS",
+          "observed_value": "Resolved: True, Active: True, ID: V-003",
+          "expected_value": "Vendor resolved and active",
+          "explanation": "Vendor V-003 is approved and active",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "DUPLICATE_CHECK",
+          "rule_name": "No Duplicates Detected",
+          "result": "PASS",
+          "observed_value": null,
+          "expected_value": null,
+          "explanation": "No duplicate or collision detected",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "PO_MATCHED",
+          "rule_name": "Purchase Order Matched",
+          "result": "PASS",
+          "observed_value": "PO: PO-1003",
+          "expected_value": null,
+          "explanation": "Matched to PO PO-1003",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "ARITHMETIC_GROSS",
+          "rule_name": "Gross = Subtotal + Tax",
+          "result": "PASS",
+          "observed_value": "Subtotal $800.00 + Tax $64.00 = $864.00",
+          "expected_value": "Gross $864.00 (tolerance: $0.01)",
+          "explanation": "Arithmetic reconciles (diff: $0.00)",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "ARITHMETIC_LINES",
+          "rule_name": "Line Items Sum to Subtotal",
+          "result": "PASS",
+          "observed_value": "Line sum: $800.00",
+          "expected_value": "Subtotal: $800.00",
+          "explanation": "Line items reconcile with subtotal",
+          "severity": "INFO"
+        },
+        {
+          "rule_id": "PO_BUDGET",
+          "rule_name": "PO Cumulative Budget Check",
+          "result": "PASS",
+          "observed_value": "PO net: $5,000.00, Committed: $2,000.00, This invoice: $800.00, Projected: $2,800.00",
+          "expected_value": "Ceiling: $5,050.00 (PO $5,000.00 + overage $50.00)",
+          "explanation": "WITHIN budget. Projected cumulative net $2,800.00 <= ceiling $5,050.00",
+          "severity": "INFO"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "a38566dc-85ad-453a-ae6b-8b5146e24500",
+      "decision": "NEEDS_INFORMATION",
+      "primary_reason_code": "MISSING_INVOICE_NUMBER",
+      "all_reason_codes": [
+        "MISSING_INVOICE_NUMBER"
+      ],
+      "explanation": "NEEDS_INFORMATION: Missing required fields: invoice_number",
+      "next_action": "Request missing information from vendor and resubmit corrected document.",
+      "responsible_role": "AP Clerk / Vendor",
+      "policy_version": "demo-policy-v1",
+      "ledger_snapshot": {
+        "po_net_cents": 500000,
+        "committed_cents": 200000,
+        "projected_cents": 280000,
+        "allowed_overage_cents": 5000,
+        "allowed_ceiling_cents": 505000
+      },
+      "created_at": "2026-10-24T20:32:48.986699"
+    }
+  ],
+  "commitments": [],
+  "review_actions": [],
+  "budget": {
+    "po_id": "PO-1003",
+    "po_description": "Cloud Infrastructure Migration",
+    "po_net_cents": 500000,
+    "po_net_display": "$5,000.00",
+    "committed_cents": 200000,
+    "committed_display": "$2,000.00",
+    "overage_cents": 5000,
+    "overage_display": "$50.00",
+    "ceiling_cents": 505000,
+    "ceiling_display": "$5,050.00",
+    "remaining_cents": 305000,
+    "remaining_display": "$3,050.00"
+  }
+}

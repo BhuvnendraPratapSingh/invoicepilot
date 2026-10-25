@@ -1,0 +1,117 @@
+{
+  "summary": {
+    "PASS": 14,
+    "FAIL": 1,
+    "BLOCKED": 0
+  },
+  "total": 15,
+  "results": [
+    {
+      "test_id": "UI-01",
+      "name": "Dashboard page loads with brand",
+      "status": "PASS",
+      "detail": "Title: Invoices \u2014 InvoicePilot",
+      "ts": "2026-10-24T22:40:51.518257"
+    },
+    {
+      "test_id": "UI-02",
+      "name": "File upload navigates to case detail",
+      "status": "PASS",
+      "detail": "",
+      "ts": "2026-10-24T22:40:55.762161"
+    },
+    {
+      "test_id": "UI-03",
+      "name": "Decision badge shows 'Auto-Approved'",
+      "status": "PASS",
+      "detail": "Badge: Auto-Approved",
+      "ts": "2026-10-24T22:40:55.774811"
+    },
+    {
+      "test_id": "UI-04",
+      "name": "Stage timeline renders with real stages",
+      "status": "PASS",
+      "detail": "Contains stage names: True",
+      "ts": "2026-10-24T22:40:55.777209"
+    },
+    {
+      "test_id": "UI-05",
+      "name": "Extracted fields visible in UI",
+      "status": "PASS",
+      "detail": "Has invoice# or vendor name: True",
+      "ts": "2026-10-24T22:40:55.779207"
+    },
+    {
+      "test_id": "UI-06",
+      "name": "Rule results visible",
+      "status": "PASS",
+      "detail": "Has rule names: True",
+      "ts": "2026-10-24T22:40:55.781603"
+    },
+    {
+      "test_id": "UI-07",
+      "name": "PDF page preview image rendered",
+      "status": "PASS",
+      "detail": "1 page images",
+      "ts": "2026-10-24T22:40:55.783670"
+    },
+    {
+      "test_id": "UI-08",
+      "name": "Refresh preserves decision",
+      "status": "PASS",
+      "detail": "After refresh: Auto-Approved",
+      "ts": "2026-10-24T22:40:57.454972"
+    },
+    {
+      "test_id": "UI-09",
+      "name": "Dashboard shows metrics after upload",
+      "status": "PASS",
+      "detail": "Metrics visible",
+      "ts": "2026-10-24T22:40:59.271371"
+    },
+    {
+      "test_id": "UI-10",
+      "name": "Cases table shows uploaded invoice",
+      "status": "PASS",
+      "detail": "Has invoice data: True",
+      "ts": "2026-10-24T22:40:59.273347"
+    },
+    {
+      "test_id": "UI-11",
+      "name": "Audit export link present",
+      "status": "PASS",
+      "detail": "href: /api/cases/b2c75bfd-a737-40ab-91c7-460b627b9fd1/audit",
+      "ts": "2026-10-24T22:41:00.482045"
+    },
+    {
+      "test_id": "UI-12",
+      "name": "Health page renders checks",
+      "status": "PASS",
+      "detail": "Has health check names: True",
+      "ts": "2026-10-24T22:41:02.414307"
+    },
+    {
+      "test_id": "UI-13",
+      "name": "No significant console errors",
+      "status": "PASS",
+      "detail": "",
+      "ts": "2026-10-24T22:41:02.414519"
+    },
+    {
+      "test_id": "UI-14",
+      "name": "Ambiguous PO review flow in browser",
+      "status": "PASS",
+      "detail": "Badge after review: Auto-Approved",
+      "ts": "2026-10-24T22:41:09.067485"
+    },
+    {
+      "test_id": "UI-15",
+      "name": "Demo reset button",
+      "status": "FAIL",
+      "detail": "Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for font",
+      "ts": "2026-10-24T22:41:41.282493"
+    }
+  ],
+  "console_errors": [],
+  "ts": "2026-10-24T22:41:41.334209"
+}
